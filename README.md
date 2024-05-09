@@ -9,22 +9,12 @@ This project is a website inspired by [sarhne.com](https://www.sarhne.com/). It 
 - Cookies and sessions management
 - Handling anonymous users
 - Object-Relational Mapping (ORM) in Django
-
+-more features
 ## Installation
 
-1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/your_username/your_project.git
-    ```
 
-2. Navigate to the project directory:
-
-    ```bash
-    cd your_project
-    ```
-
-3. Install dependencies:
+ Install dependencies:
 
     ```bash
     pip install -r requirements.txt
