@@ -1,0 +1,331 @@
+{%load static %}
+
+{% block message %}
+
+<div id="tab_contant"> <br>
+  <div
+    style="float: left;background: #e8e8e8;border-radius: 5px;padding-left: 10px;padding-right: 10px;color: #262626b3;font-size: 14px;">
+    <img src="{% static  'assets/img/list.svg' %}" class="middle" width="16"> <small id="del_all_messges"
+      style="/*! color: #f0766b; */" onclick="show_op()"> خيارات </small>
+
+
+    <div id="myDropdown" class="dropdown-content text_right f12 show">
+
+      <a onclick="switch_sort();"> ترتيب الرسائل <i class="icofont-sort"></i></a>
+      <a onclick="close_all();del_all_messges();"><span class="red"> حذف كل الرسائل <i
+            class="icofont-ui-delete"></i></span></a>
+      <a onclick="close_all();"> ألغاء <i class="icofont-close"></i></a>
+    </div>
+
+    <div id="sort_by" class="dropdown-content text_right f12 show">
+      <a onclick="switch_sort_value('new');"> الأحدث اولا <i class="icofont-arrow-up"></i></a>
+      <a onclick="switch_sort_value('old');"> الأقدم اولا <i class="icofont-arrow-down"></i></a>
+      <a onclick="close_all();"> ألغاء <i class="icofont-close"></i></a>
+    </div>
+    <script>
+      function switch_sort() {
+        $("#myDropdown").hide();
+        $("#sort_by").show();
+      }
+
+      function switch_sort_value(v) {
+        sort_msg = v;
+        tabclick('my_messages.html');
+
+      }
+
+      function show_op() {
+        $("#myDropdown").show();
+
+      }
+
+      function close_all() {
+        $("#myDropdown").hide();
+        $("#sort_by").hide();
+      }
+
+
+    </script>
+
+    <style>
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        text-align: right;
+      }
+
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+    </style>
+
+  </div>
+
+
+
+
+
+
+  <div style="float: right;">
+    <span> {{number_of_messeges}} : الرسائل </span>
+  </div>
+  <div style="clear:both;margin-bottom: 10px;"></div>
+
+  <div id="posts_results">
+
+
+
+
+
+    <!-- static message -->
+
+    <!-- end message  -->
+    {% for message in messeges_of_user %}
+
+    {% if message.is_delete == False %}
+
+
+
+
+
+
+    <div class="timeline-centered" id="1708435017">
+      <div id="dl-434230035">
+
+        <article class="timeline-entry">
+          <div class="timeline-entry-inner">
+
+            {% if message.is_secret %}
+            <div class="timeline-icon bg-secondary" onclick="open_link('#');">
+              <img src="{% static  'assets/img/s-48.png' %}" class="img_user_not_found">
+              <br><small class="white"> {{message.no_of_like}}</small>
+              <img src="{% static  'assets/img/blike.svg' %}" alt="#" style="vertical-align:middle;opacity:.70"
+                width="18" height="auto">
+            </div>
+            {% else %}
+
+
+            <div class="timeline-icon bg-secondary">
+              <img src="{{message.profile.image.url}}" class="img_user_not_found"
+                onclick="open_link('/profile/{{message.profile.slug}}');">
+              <br><small class="white"> {{message.no_of_like}}</small>
+              <img src="{% static  'assets/img/blike.svg' %}" alt="#" style="vertical-align:middle;opacity:.70"
+                width="18" height="auto">
+            </div>
+
+
+            {% endif %}
+
+
+            <div class="timeline-label">
+              <div class="containe">
+                <div class="left" style="text-align:left;">
+                  {% if message.is_favorite %}
+                  <a onclick="fav('{{message.id}}','unfavorit')">
+                    <img id="fav_{{message.id}}" src="{% static  'assets/img/stary.svg' %}" width="25" alt="*">
+
+                  </a>
+
+
+
+
+                  {%else%}
+
+                  <a onclick="fav('{{message.id}}','favorit')">
+                    <img id="fav_{{message.id}}" src="{% static  'assets/img/star.svg' %}" width="25" alt="*">
+
+                  </a>
+                  {% endif %}
+
+                </div>
+
+
+
+                {% if message.is_secret %}
+                <div class="right" onclick="open_link('#')">
+                  مجهول : <span class="msg_time">{{message.date }}<br> </span>
+                </div>
+                {%else%}
+                <div class="right" onclick="open_link('profile/{{message.profile.slug}}')">
+                  {{message.profile.user.username}} : <span class="msg_time">منذ 1 ساعة <br> </span>
+                </div>
+
+                {% endif %}
+
+
+
+              </div>
+              <div class="hr"></div>
+
+              <center style="font-size: 14px;direction: rtl;" class="kill_long_text">{{message.content}}<br>
+
+
+
+              </center>
+              <div class="hr"></div>
+
+
+
+              {% if message.is_hiden %}
+              <div class="textBottom">
+                <a id="del_439172419" href="{% url 'unsent' %}?key={{message.id}}" class="sbutton bc-red"> <img
+                    src="{% static 'assets/img/delete-button.svg'  %}" width="15" height="auto" alt="#"
+                    style="vertical-align:middle;"> حذف </a>
+
+
+
+                <a id="show_msg_439172419" href="{% url 'show' %}?key={{message.id}}" class="sbutton bc-blue"> <img
+                    src="{% static 'assets/img/sent.svg'  %}" width="15" height="auto" alt="#"
+                    style="vertical-align:middle;"> أظهار</a>
+                <div style="float: right;">
+                  <!--       <a onclick="block_user('439172419');" class="sbutton" style="color: #791c1c;opacity: .6;">  حظر ؟</a>   -->
+
+                </div>
+
+
+
+
+              </div>
+            </div>
+          </div>
+          {% else %}
+          {% if message.replay_message.is_delete == False %}
+          <div class="textBottom">
+            <a id="del_434230035" href="{% url 'unsent' %}?key={{message.id}}" class="sbutton bc-red">
+              <img src="{% static  'assets/img/delete-button.svg' %}" width="15" height="auto" alt="#"
+                style="vertical-align:middle;"> حذف </a>
+
+            <a href="{% url 'hiden' %}?key={{message.id}}" class="sbutton bc-green"> <img
+                src="{% static  'assets/img/hide.svg' %}" width="15" height="auto" alt="#"> أخفاء </a>
+            <span class="rmsg" style="width:90%;">
+              <figcaption>
+                <div class="replay-title">
+                  ردك
+                </div>
+                <div class="hr" style="border-bottom: .5px solid #00000030;"></div>
+                <div class="reply-contant">
+                  {{message.replay_message.content}}
+
+                </div>
+                <div class="hr" style="border-bottom: .5px solid #00000030;"></div>
+                <div style="text-align:left;">
+                  <a href="{% url 'delete_replay' %}?key={{message.replay_message.id}}"
+                    class="btn button-border-highlight"><img id="del_replay_434230035"
+                      src="{% static  'assets/img/bdel-replay.svg' %}" width="15" height="auto" alt="#"></a>
+                  <a href="/edit_replay/{{message.id}}/" class="btn button-border-highlight"><img
+                      id="edit_replay_434230035" src="{% static  'assets/img/bedit-replay.svg' %}" width="15"
+                      height="auto" alt="#"></a>
+                </div>
+              </figcaption>
+            </span>
+
+
+
+
+
+
+          </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="textBottom">
+      <a id="del_438307232" href="{% url 'unsent' %}?key={{message.id}}" class="sbutton bc-red"> <img
+          src="{% static  'assets/img/delete-button.svg' %}" width="15" height="auto" alt="#"
+          style="vertical-align:middle;"> حذف </a>
+
+
+
+      <a id="show_msg_438307232" href="{% url 'hiden' %}?key={{message.id}}" class="sbutton bc-green"> <img
+          src="{% static  'assets/img/hide.svg' %}" width="15" height="auto" alt="#" style="vertical-align:middle;">
+        أخفاء
+      </a>
+      <a id="replay_msg_438307232" href="/replay/{{message.id}}/" class="sbutton bc-replay"> <img
+          src="{% static  'assets/img/replay.svg' %}" width="15" height="auto" alt="#" style="vertical-align:middle;">
+        رد
+      </a>
+
+
+
+
+
+    </div>
+  </div>
+</div>
+{%endif%}
+</article>
+</div>
+</div>
+{% endif %}
+{% endif %}
+{% endfor %}
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+  function loade_more() {
+    var last_id = $('.timeline-centered:last').attr('id');
+
+    disabled_button();
+    $.ajax({
+      type: 'POST',
+      url: 'ajax/messages/fetch_messages.html',
+      data: 'last_id=' + last_id + '&sort=' + sort_msg,
+      success: function (res) {
+
+        activebutton();
+        if (res == 'nomore') {
+          $('#send_button').hide();
+          nativeToast({
+            message: ' تم عرض جميع الرسائل ',
+            type: 'success',
+            position: 'center'
+          })
+        } else {
+          $('#posts_results').append(res);
+        }
+
+
+      }, error: function (request, status, error) {
+        document.getElementById('send_button').disabled = false;
+        $('#send_button').html('<img src="{% static  'assets / img / loader.svg' %}" alt="#" style="vertical-align:middle;" width="22" height="auto"> أعادة المحاولة  ');
+        server_erorr();
+      }
+    });
+
+  }
+
+
+
+
+
+  function activebutton() {
+    document.getElementById('send_button').disabled = false;
+    $('#send_button').html('<img src="{% static  'assets / img / scroll_down.gif' %}" alt="#" style="vertical-align:middle;" width="22" height="auto"> عرض المزيد من الرسائل ');
+  }
+
+  function disabled_button() {
+    document.getElementById('send_button').disabled = true;
+    $('#send_button').html('  انتظر من فضلك <img src="{% static  'assets / img / loading.svg' %}" width="27" class="middle" alt="#"> ');
+
+  }
+
+
+</script>
+</div>
+{% endblock %}

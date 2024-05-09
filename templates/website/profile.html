@@ -1,0 +1,749 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title> صارحني برسالة سرية {{profile.user.username}} </title>
+    <meta property="og:title" content="صارحني برسالة سرية Abdelftah Khaled" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.sarhne.com/53977590013189" />
+   
+    <meta property="og:image:width" content="737" />
+    <meta property="og:image:height" content="384" />
+    <meta name="description"
+        content="ارسل لي رسالة سرية دون أن أعرف من انت , انقر هنا وادخل الصندوق السري الخاص بي , كن صادقاُ معي">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4704968227879779"
+        crossorigin="anonymous"></script>
+    <link href="{% static 'assets/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/icofont.min.css' %}">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le10rcUAAAAAE71INWyFbBjBUU7BPGQo5_thY9b"></script>
+</head>
+
+<!-- start -->
+<center>
+    <div id="top">
+        <div class="user-title" dir="rtl">
+            أكتب رسالة إلى <b> {{profile.user.username}} </b> دون ان يعرفك </div>
+        <img id="myImg" src="{{profile.image.url}}" width="120" height="120" alt="Abdelftah Khaled" onerror="this.onerror=null;this.src='https://www.sarhne.com/assets/img/logo-150.jpg';" class="cimg"><br>
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+        </div>
+    </div>
+    </div>
+    <div id="center" class="noselect" dir="rtl">
+        <div class="s_left">
+            <img src="assets/img/l.png" class="img_s_left">
+        </div>
+        <div class="s_right" style="margin-top: -10px;margin-right: -7px;">
+            <img src="assets/img/r.png" class="img_s_right">
+        </div>
+        <div style="clear:both;"></div>
+        <style>
+            .middle {
+                vertical-align: middle;
+            }
+
+            .profile_online {
+                width: 15px;
+                height: 15px;
+                background: #18ac16;
+                display: inline-block;
+                /* float: left; */
+                border-radius: 50%;
+                /* position: relative; */
+                /* top: 4px; */
+                margin-right: 5px;
+                /* font-family: "weblysleek_uilight"; */
+                -moz-transform: translateY(0.1em);
+            }
+        </style>
+        <small dir="rtl" class="gray" style="display: block;"> <span class="profile_online middle"></span> {{user.last_login}} </small>
+        <span id="erorrid"></span>
+        <form id="form" method="post" enctype="multipart/form-data" action="{% url 'profile_detail' slug=profile.slug %}">
+          
+            {% csrf_token %}
+            {% if form.errors %}
+            <div class="errors">
+                <h3>Errors:</h3>
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                    <li>{{ field }}: {{ error }}</li>
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <textarea id="sarhne" dir="rtl" rows="7" maxlength="500" name="content" placeholder="هناك شيء تريد قوله لـ {{profile.user.username}} ، بدون ان يعرفك ؟ أكتب هنا" class="textarea"></textarea>
+            <small style="float:left;direction: ltr;"> <b id="char_count">500</b> الحروف المتبقية </small>
+            <input type="checkbox" name="is_secret" class="switch-input" id="show_my_info" checked>
+            <section style="margin-bottom:10px;" onclick="show_my_info_switch();" for="id-name--1" class="switch-label"> <small class="toggle--on"> بشكل سري : <span class="green"> نعم </span> </small><small class="toggle--off"> بشكل سري : <span class="red"> لا </span> </small></section>
+            <script>
+                var show_my_info = 'false';
+
+                function show_my_info_switch() {
+                    if (show_my_info.includes('true')) {
+                        document.getElementById("show_my_info").checked = true;
+                        show_my_info = 'false';
+                        showalert('جميع معلومات سرية الآن للغاية');
+                    } else if (show_my_info.includes('false')) {
+                        document.getElementById("show_my_info").checked = false;
+                        show_my_info = 'true';
+                        showalert('سيتم الان في هذه المصارحة اظهار اسمك وصورتك الشخصية مع هذا المستخدم');
+                    }
+                }
+            </script>
+            <div style="clear:both;"></div>
+            <div id="idemoj" style="width:97%; background:#fff;margin:5px;padding:5px;display:block;font-size:22px;">
+                <a onclick="sendemoji(' 😀 ');"> 😀 </a>
+                <a onclick="sendemoji(' 😅 ');"> 😅 </a>
+                <a onclick="sendemoji(' 😂 ');"> 😂 </a>
+                <a onclick="sendemoji(' 🤣 ');"> 🤣 </a>
+                <a onclick="sendemoji(' 🙂 ');"> 🙂 </a>
+                <a onclick="sendemoji(' 😍 ');"> 😍 </a>
+                <a onclick="sendemoji(' 😘 ');"> 😘 </a>
+                <a onclick="sendemoji(' 😭 ');"> 😭 </a>
+                <a onclick="sendemoji(' 😢 ');"> 😢 </a>
+                <a onclick="sendemoji(' 😎 ');"> 😎 </a>
+                <a onclick="sendemoji(' 🤨 ');"> 🤨 </a>
+                <a onclick="sendemoji(' 😳 ');"> 😳 </a>
+                <a onclick="sendemoji(' 💩 ');"> 💩 </a>
+                <a onclick="sendemoji(' 😡 ');"> 😡 </a>
+                <a onclick="sendemoji(' 😷 ');"> 😷 </a>
+                <a onclick="sendemoji(' 👋 ');"> 👋 </a>
+                <a onclick="sendemoji(' 💋 ');"> 💋 </a>
+                <a onclick="sendemoji(' 🙈 ');"> 🙈 </a>
+                <a onclick="sendemoji(' 🌹 ');"> 🌹 </a>
+                <a onclick="sendemoji(' ❤️ ');"> ❤️ </a>
+            </div>
+            <style>
+                .buttom_img {
+                    background-color: #F6F6F6;
+                    width: 60%;
+                    /* margin: 10px; */
+                    border: 0;
+                    direction: ltr;
+                    border: 1px dashed #C6C6C6;
+                    padding: 5px;
+                    font-size: 13px;
+                    color: #2d2f31;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    display: inline-block;
+                }
+
+                .remove_photo_msg {
+                    text-decoration: none;
+                    color: #717171;
+                    font-size: 12px;
+                    display: none;
+                }
+            </style>
+
+            <img id="userphoto" style="overflow:hidden;border-radius:5px;display:none;" src width="150" alt>
+            <br>
+            <a onclick="reset_photo_img();" class="remove_photo_msg" id="remove_photo_msg"> ازالة الصورة؟ </a>
+            <div>
+
+               <label for="add_photo_msg" class="buttom_img"> 
+
+                    <img src="{% static 'assets/img/add_photo_msg.svg' %}" alt="#" style="vertical-align:middle;"
+                        width="22" height="auto">
+                    أضافة صورة
+                    <input type="file" accept="image/*" required="" aria-invalid="true" id="id_image" name="image" accept="image/*" >
+                 </label> 
+  
+            </div>
+<!-- good -->
+            <button id="send_button" class="flatbutton" type="submit"
+                style="background-color:#2D2F31;width:90%;margin:10px;border:0;direction: ltr;"><img
+                    src="{% static 'assets/img/sent.svg' %}" alt="#" style="vertical-align:middle;" width="22"
+                    height="auto"> أرسال الآن </button>
+
+            <script>
+                function getFile() {
+
+                    showalert('لايرغب هذا المستخدم بالحصول على صور مع الرسائل الجديدة حالياً  , اذا كنت صاحب الحساب وترغب بتفعيل هذه الميزة اذهب الى اعدادات الحساب ومن ثم اختر تفعيل قبول الصور')
+
+
+
+
+
+                }
+
+
+                var img_width = 300;
+                var img_height = 300;
+
+                function isCanvasBlank(canvas) {
+                    const context = canvas.getContext('2d');
+
+                    const pixelBuffer = new Uint32Array(
+                        context.getImageData(0, 0, canvas.width, canvas.height).data.buffer
+                    );
+
+                    return !pixelBuffer.some(color => color !== 0);
+                }
+
+
+                var is_img = false;
+
+                function imageToDataUri(img, width, height) {
+
+                    // create an off-screen canvas
+                    var canvas = document.createElement('canvas'),
+                        ctx = canvas.getContext('2d');
+
+                    // set its dimension to target size
+                    canvas.width = width;
+                    canvas.height = height;
+
+                    // draw source image into the off-screen canvas:
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    const blank = isCanvasBlank(canvas);
+
+                    if (blank == false) {
+                        is_img = true;
+                    }
+
+
+                    return canvas.toDataURL('image/jpeg', 0.8);
+                }
+
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+
+
+                            var img = new Image;
+                            $(img).load(function() {
+                                img_width = this.width;
+                                img_height = this.height;
+                            });
+                            img.onload = resizeImage;
+                            img.src = e.target.result;
+
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+
+                function resizeImage() {
+                    var newHeight = Math.floor(img_height / img_width * 300);
+                    var newDataUri = imageToDataUri(this, 300, newHeight);
+
+                    if (is_img == true) {
+                        $('#userphoto').attr('src', newDataUri);
+                        $('#img_code').val(newDataUri);
+                        $('#userphoto').attr('src', newDataUri);
+                        $("#add_photo_msg").hide();
+                        $("#userphoto").show();
+                        $("#remove_photo_msg").show();
+                    }
+
+                }
+
+
+                $("#PhotoFile").change(function() {
+                    readURL(this);
+
+                });
+
+
+                function reset_photo_img() {
+                    is_img = false;
+                    $('#img_code').val('');
+                    $("#add_photo_msg").show();
+                    $("#userphoto").hide();
+                    $("#remove_photo_msg").hide();
+                    $('#userphoto').attr('src', '');
+                }
+            </script>
+          
+        </form>
+
+        <div class="hr"></div>
+        <div class="user-report" dir="rtl">
+            <span> الزيارات :{{count}}</span>
+            <p id="report"><a href="#mailto:sarhne.com@gmail.com?subject=البلاغ عن اساءة استخدام&body=مرحباً , لقد عثرت على رابط اعتقد انه يخالف شروط موقع صارحني الرجاء النظر على الرابط التالي : https://sarhne.com/53977590013189 " style="font-size: 13px;" class="white">أبلاغ؟</a>                    </p>
+        </div>
+    </div>
+    <div class="box2">
+        <div id="user_messages">      <br> <div class="rule">
+            <div class="line"><div></div></div>
+            <div class="words">  : بأظهارها  {{user.username}}  الأراء التي سمح {{all_message_to_user.count}}</div>
+            <div class="line"><div></div></div>
+        </div> <div id="posts_results">
+              
+        
+        
+        
+        
+         {% for message in all_message_to_user %}
+           
+          
+          {% if message.replay_message %}
+          <div class="timeline-centered" id="434230035"> 
+         
+          
+            <article class="timeline-entry"><div class="timeline-entry-inner">
+            <div class="timeline-icon bg-secondary" onclick="open_link('#');"><img src="{{message.sender.profile.image.url}}" class="img_user_not_found">
+            
+             </div><div class="timeline-label"><div class="containe">
+              <div class="right" onclick="open_link('#')">
+             {{message.sender.username}} : <span class="msg_time">{{message.date}} <br> </span> </div>
+              
+              </div><div class="hr"></div>
+              
+              <center style="font-size: 14px;direction: rtl;" class="kill_long_text">{{message.content}}<br>
+            </center><div class="hr"></div> 
+              
+              <div class="textBottom">
+            
+                <a id="msglike_434230035" href="{% url 'like_message' %}?key={{message.id}}">
+                <img id="imglk_434230035" src="{% static 'assets/img/like.svg' %}" alt="#" style="vertical-align:middle;" width="22" height="auto"> 
+
+                  <small style="color: #00000085;" id="totallk_434230035"> {{message.no_of_like}} </small> 
+             </a>
+              
+                        
+            
+                
+            <span class="rmsg" style="width:90%;">
+              <figcaption>
+                    <div class="replay-title" style="direction: ltr;font-size: 14px;color: #000;font-weight: 400;">
+                        {{message.profile.user.username}} : <img src="{{message.profile.image.url}}" alt="#" style="vertical-align:middle;border: 2px #0003 solid;" class="cimg" width="25" height="25">
+                    </div> <div class="hr" style="border-bottom: .5px solid #00000030;"></div> 
+             <div class="reply-contant">
+            {{message.replay_message.content}} 
+             
+                    </div>	 <div class="hr" style="border-bottom: .5px solid #00000030;"></div> 
+             
+                </figcaption></span> 
+                 
+                
+            
+             </div></div></div>
+              
+              
+              </article>	 </div>
+              {%else%}
+
+
+              <div class="timeline-centered" id="438629206"> 
+
+                <article class="timeline-entry"><div class="timeline-entry-inner">
+                <div class="timeline-icon bg-secondary" onclick="open_link('#');"><img src="{{message.sender.profile.image.url}}" class="img_user_not_found">
+                
+                 </div><div class="timeline-label"><div class="containe">
+                  <div class="right" onclick="open_link('#')">
+                 {{message.sender.username}} : <span class="msg_time">{{message.date}}  <br> </span> </div>
+                  
+                  </div><div class="hr"></div>
+                  
+                  <center style="font-size: 14px;direction: rtl;" class="kill_long_text">{{message.content}} </center><div class="hr"></div> 
+                  
+                  <div class="textBottom">
+                
+                    <a id="msglike_434230035" href="{% url 'like_message' %}?key={{message.id}}">
+                        <img id="imglk_434230035" src="{% static 'assets/img/like.svg' %}" alt="#" style="vertical-align:middle;" width="22" height="auto"> 
+        
+                      <small style="color: #00000085;" id="totallk_438629206"> {{message.no_of_like}} </small> 
+                 </a>
+                  
+                        
+                    
+                
+                 </div></div></div>
+         
+                  </article>	 </div>
+          {% endif %}
+             
+ 
+       
+
+          {% endfor %} 
+        </div>   
+        
+         </div>
+        </div>
+<!-- end -->
+<center>
+
+
+
+    
+        <script>
+            get_messages();
+
+            function get_messages() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'ajax/messages/get_messages.html',
+                    data: 'link=53977590013189&name=Abdelftah Khaled&photo=https://static.sarhne.com/sarhne.com/profile_photo/53977590013189.jpg?t=1694118733',
+                    success: function(res) {
+                        $('#user_messages').html(res);
+                    },
+                    error: function(request, status, error) {
+                        $('#user_messages').html('حدث خطأ في جلب البيانات اعد المحاولة');
+                    }
+                });
+            }
+
+
+
+            function loade_more() {
+                var last_id = $('.timeline-centered:last').attr('id');
+                get_messages_disabled_button();
+                $.ajax({
+                    type: 'POST',
+                    url: 'ajax/messages/fetch_get_messages.html',
+                    data: 'last_id=' + last_id + '&link=53977590013189&name=Abdelftah Khaled&photo=https://static.sarhne.com/sarhne.com/profile_photo/53977590013189.jpg?t=1694118733',
+                    success: function(res) {
+
+                        get_messages_activebutton();
+                        if (res.includes('nomore')) {
+                            $('#send_button_messages').hide();
+                            nativeToast({
+                                message: ' تم عرض جميع الردود ',
+                                type: 'success',
+                                position: 'center'
+                            })
+                        } else {
+                            $('#posts_results').append(res);
+                        }
+
+
+                    },
+                    error: function(request, status, error) {
+                        document.getElementById('send_button_messages').disabled = false;
+                        $('#send_button_messages').html('<img src="assets/img/loader.svg" alt="#" style="vertical-align:middle;" width="22" height="auto"> أعادة المحاولة  ');
+                        server_erorr();
+                    }
+                });
+
+            }
+
+
+
+            function get_messages_activebutton() {
+                document.getElementById('send_button_messages').disabled = false;
+                $('#send_button_messages').html('<img src="assets/img/scroll_down.gif" alt="#" style="vertical-align:middle;" width="22" height="auto"> عرض المزيد من الرسائل ');
+            }
+
+            function get_messages_disabled_button() {
+                document.getElementById('send_button_messages').disabled = true;
+                $('#send_button_messages').html('  انتظر من فضلك <img src="assets/img/loading.svg" width="27" class="middle" alt="#"> ');
+
+            }
+        </script>
+        <div class="box">
+            <i class="icofont-bulb-alt main_color" style="font-size:120px;"></i>
+            <br>
+            <div class="logo">
+                <h3>
+                    حانت لحظة الصراحة
+                </h3>
+            </div>
+            <font color="#000">
+                <b>هل أنت مستعد لمعرفة ملاحظات الناس عنك بدون أن تعرفهم ؟</b></font><small><font color="#25373D"><br>
+أحصل على رسائل سرية من زملائك بصراحة <br>
+إعرف مزاياك و عيوبك، وما يعتقده الناس عنك <br>
+عزز شخصيتك بمعرفة الواقع بعيدا عن النفاق <br>
+واجه الصراحة التي أخفتها عنك المجاملات <br>
+<br></font></small>
+            <a href="signup.html" class="userbutton" style="background-color:#F0776C;width:90%;margin:10px;"> ! سجل حسابك الآن </a>
+        </div>
+        <div class="box">
+            <a href="https://sarahah.pro">
+<img src="https://sarahah.pro/assets/img/uploads/ad_sarhne.jpg" width="100%">
+</a>
+        </div>
+        <div id="center" style="margin-top:50px;">
+            <div class="s_left">
+                <img src="assets/img/l.png" class="img_s_left">
+            </div>
+            <div class="s_center">
+                <div class="s_contener">
+                    <div class="s_top">
+                        <img src="{% static 'assets/img/social/all.gif' %}" style="width: 80px;margin-left: -10px;margin-top: -10px;opacity: .5;">
+                    </div>
+                    <div class="s_text" style="direction: rtl;font-size:14px;">
+                        روابط التواصل الأجتماعي الخاصة بـ : {{profile.user.username}} </div>
+                </div>
+            </div>
+            <div class="s_right">
+                <img src="{% static 'assets/img/r.png' %}" class="img_s_right">
+            </div>
+            <div style="clear:both;"></div>
+            <img src="{% static 'assets/img/arrow.png' %}" class="img_arrow">
+            <br> <br>
+            <a href=""><img onclick="social_link('no_link','instagram');" src="{% static 'assets/img/social/instagram_icon.svg' %}" class="soical_icon"></a>
+            <a href=""> <img onclick="social_link('no_link','twitter');" src="{% static 'assets/img/social/twitter_icon.svg' %}" class="soical_icon"> </a>
+            <a href=""></a> <img onclick="social_link('no_link','facebook');" src="{% static 'assets/img/social/facebook_icon.svg' %}" class="soical_icon"></a>
+            <a href=""> <a href=""></a> <img onclick="social_link('no_link','snapchat');" src="{% static 'assets/img/social/snapchat_icon.svg' %}" class="soical_icon"></a>
+            <a href=""></a> <img onclick="social_link('no_link','youtube');" src="{% static 'assets/img/social/youtube_icon.svg' %}" class="soical_icon"></a>
+            <a href=""></a> <img onclick="social_link('no_link','wa');" src="{% static 'assets/img/social/wa_icon.svg' %}" class="soical_icon"></a>
+            <a href=""><img onclick="social_link('no_link','tiktok');" src="{% static 'assets/img/social/tiktok_icon.svg' %}" class="soical_icon"></a>
+            <a href=""> <img onclick="social_link('no_link','messenger');" src="{% static 'assets/img/social/messenger_icon.svg' %}" class="soical_icon"></a>
+            <a href=""><img onclick="social_link('no_link','email');" src="{% static 'assets/img/social/gmail_icon.png' %}" class="soical_icon"></a>
+            <a href=""><img onclick="social_link('no_link','website');" src="{% static 'assets/img/social/website_icon.png' %}" class="soical_icon"></a>
+        </div>
+        <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4704968227879779" data-ad-slot="8836972412" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script><br>
+
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4704968227879779" data-ad-slot="8364530822" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <br>
+        <div class="box2">
+            <div class="rule">
+                <div class="line">
+                    <div></div>
+                </div>
+                <div class="words">
+                    <div class="logo">
+                        <h3>
+                            اختبار الصداقة
+                        </h3>
+                    </div>
+                </div>
+                <div class="line">
+                    <div></div>
+                </div>
+            </div>
+            <img src="{% static 'assets/img/friend_quiz.svg' %}" width="250"> <br> معرفة قوة الصداقة بينك وبين أصدقائك
+            <br><small>
+                <font color="#25373D">
+هو اختبار يساعدك على معرفة قوة الصداقة بينك وبين أصدقائك انشئ اختبار خاص بك وشاركة عبر الفيس بوك
+</font></small>
+            <br>
+            <a href="https://sarahah.pro/sadakah/" class="userbutton" style="background-color:#F1766C;width:100%;border:0;margin-bottom:5px;" rel="nofollow"> تجربة اختبار الصداقة </a>
+            <div class="hr"></div>
+        </div>
+        <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4704968227879779" data-ad-slot="1990694163" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script><br>
+        <div class="box2">
+            <div class="rule">
+                <div class="line">
+                    <div></div>
+                </div>
+                <div class="words"> أخترنا لك تطبيق رائج </div>
+                <div class="line">
+                    <div></div>
+                </div>
+            </div>
+            <div id="random-app"></div>
+            <script>
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var res = this.responseText;
+                        document.getElementById("random-app").innerHTML = res;
+                    }
+                }
+                xhttp.open("GET", "apps.html", true);
+                xhttp.send();
+            </script>
+            <div class="hr"></div>
+        </div>
+        <br>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4704968227879779" data-ad-slot="4129896055" data-ad-format="link" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <script src="assets/js/autosize.min.js"></script>
+        <script>
+            function activebutton() {
+
+                document.getElementById('send_button').disabled = false;
+                $('#send_button').html('   ارسال مصارحة <img src="assets/img/sent.svg" width="27" class="middle" alt="#"> ');
+            }
+
+            function disabled_button() {
+                document.getElementById('send_button').disabled = true;
+                $('#send_button').html('  انتظر من فضلك <img src="assets/img/loading.svg" width="27" class="middle" alt="#"> ');
+
+            }
+
+
+
+ 
+
+
+
+
+
+            function social_link(link, socila) {
+                var msg = "";
+                if (socila == 'facebook') {
+                    msg = "هذا المستخدم لم يضع رابط الفيسبوك الخاص به";
+                } else if (socila == 'instagram') {
+                    msg = "هذا المستخدم لم يضع رابط انستغرام الخاص به";
+                } else if (socila == 'twitter') {
+                    msg = "هذا المستخدم لم يضع رابط تويتر الخاص به";
+                } else if (socila == 'snapchat') {
+                    msg = "هذا المستخدم لم يضع رابط سناب شات الخاص به";
+                } else if (socila == 'youtube') {
+                    msg = "هذا المستخدم لم يضع رابط قناته على اليتيوب ";
+                } else if (socila == 'wa') {
+                    msg = "هذا المستخدم لم يضع رقم هاتفه  ";
+                } else if (socila == 'tiktok') {
+                    msg = "هذا المستخدم لم يضع رابط التيك توك الخاص به  ";
+                } else if (socila == 'messenger') {
+                    msg = "هذا المستخدم لم يضع رابط المسنجر الخاص به  ";
+                } else if (socila == 'email') {
+                    msg = "هذا المستخدم لم يضع بريده الألكتروني  ";
+                } else if (socila == 'website') {
+                    msg = "هذا المستخدم لم يضع رابط موقعه الألكتروني  ";
+                }
+
+
+                if (link == 'no_link') {
+                    showalert(msg);
+                } else {
+                    window.location.href = link;
+                }
+
+
+
+
+            }
+
+
+
+
+            function showerorr(type, title, msg) {
+                $('#erorrid').show();
+                document.getElementById('erorrid').innerHTML = "<div class='notification " + type + "' dir='rtl'><span class='notification-close'>&times;</span><h3 class='notification-title'>" + title + "</h3><p class='notification-message'>" + msg + "</p></div>";
+            }
+
+
+
+
+
+
+            var len = 0;
+            var maxchar = 500;
+            $('#sarhne').keyup(function() {
+                len = this.value.length
+                if (len > maxchar) {
+                    return false;
+                } else if (len > 0) {
+                    $("#char_count").html(maxchar - len);
+                } else {
+                    $("#char_count").html(maxchar);
+                }
+            })
+
+
+
+            function msglike(id) {
+
+                document.getElementById("imglk_" + id).src = "assets/img/ajax_clock_black.svg";
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'ajax/messages/like.html',
+                    data: 'msg_id=' + id,
+                    success: function(res) {
+                        $('#totallk_' + id).html(res);
+                        document.getElementById("imglk_" + id).src = "assets/img/like.svg";
+                        document.getElementById('msglike_' + id).onclick = null;
+                    },
+                    error: function(request, status, error) {
+                        document.getElementById("imglk_" + id).src = "assets/img/ajax_err_black.svg";
+                        server_erorr();
+                    }
+                });
+
+
+            }
+
+
+            function screenClass() {
+                if ($(window).innerWidth() > 1200) {
+                    $('.tabs').hide();
+                    $('.hrbac').hide();
+                } else {
+                    $('.hrbac').show();
+                    $('.tabs').show();
+                }
+            }
+
+            screenClass();
+            $(window).bind('resize', function() {
+                screenClass();
+            });
+            var modal = document.getElementById('myModal');
+
+            var img = document.getElementById('myImg');
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            img.onclick = function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            }
+
+            var span = document.getElementsByClassName("close")[0];
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+            autosize(document.getElementById("sarhne"));
+
+            function sendemoji(e) {
+
+                var textField = $('#sarhne');
+
+                $("#sarhne").val(textField.val() + e);
+                $("#sarhne").focus();
+            }
+        </script>
+        <script src="assets/js/func.js?v=1598020502"></script>
+        <script src="assets/js/alerty.js?v2"></script>
+        <script src="assets/js/toast.js"></script>
+
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZRDMJGQHJC"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-ZRDMJGQHJC');
+        </script>
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"8587082ddf3deea4","version":"2024.2.1","token":"218cd1753fe64a258e6d9b2b19630e7e"}'
+            crossorigin="anonymous"></script>
+</body>
+{% endblock %}       
+

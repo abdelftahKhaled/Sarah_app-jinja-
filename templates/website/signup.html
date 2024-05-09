@@ -1,0 +1,327 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <script src=""></script>
+    <title> صراحة تسجيل حساب صارحني </title>
+    <meta name="title" content=" صارحني تسجيل حساب">
+    <meta name="description" content="تسجيل حساب جديد على صراحة والحصول على رابط جاهز لنشر على شبكات التواصل">
+    <meta name="keywords" content="sarahah,sarahah2,sarahah top,sarahah .com,sarahah apk,sarahah تنزيل ,sarahah app,sarahah online,صارحني , صراحة , صراحة تسجيل حساب , صراحة تسجيل الدخول">
+    <meta name="robots" content="index, follow">
+    <link href="{% static 'assets/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets\icofont.min.css'%}">
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+</head>
+
+<body id="body">
+    <div class="nav" dir="rtl">
+        <div class="nav-header">
+            <div class="nav-title">
+                <img src="{% static 'assets/img/sarhne-nav.png' %}" height="40" alt="Sarhne">
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+<section></section>
+<section></section>
+<section></section>
+</label>
+        </div>
+        <input type="checkbox" id="nav-check">
+        <div class="nav-links">
+            <a href="{% url 'index'%}">الرئيسية</a>
+            <a href="{% url 'signup'%}"><span class="active"> أشتراك </span></a>
+            <a href="{% url 'signin'%}"> تسجل الدخول </a>
+            <a href="{% url 'help'%}">تعليمات</a>
+            <a href="{% url 'contact_us'%}">اتصل بنا</a>
+        </div>
+    </div>
+    <center>
+        <div id="top">
+            <br><img src="{% static 'assets/img/logo-150.jpg' %}" width="111" alt="Sarhne_logo"><br>
+            <div class="logo">
+                <h1 class="h1">
+                    صارحني تسجيل حساب
+                </h1>
+            </div>
+            <br><br>
+        </div>
+        <div id="center">
+            <div class="center">
+                <section id="succ" style="display:none;">
+                    <div class="hhr"></div>
+                    <h3>
+                        تم تسجيل حسابك بنجاح
+                    </h3>
+                    <img src="assets/img/done.svg" width="100" height="100" alt="*">
+                    <h5>
+                        الرجاء الأنتظار
+                    </h5>
+                    <div class="hhr"></div>
+                </section>
+                <section id="ajax_wait" style="display:none;">
+                    <div class="hhr"></div>
+                    <h3>
+                        تسجيل حساب جديد
+                    </h3>
+                    <div class="loader"></div>
+                    <h5>
+                        الرجاء الأنتظار
+                    </h5>
+                    <div class="hhr"></div>
+                </section>
+                <section id="reg">
+                    <div class="rule">
+                        <div class="line">
+                            <div></div>
+                        </div>
+                        <div class="words"> تسجيل مباشر </div>
+                        <div class="line">
+                            <div></div>
+                        </div>
+                    </div>
+                    <a href="auto-login.html?login=facebook" class="flatbutton" style="background-color:#4267B2;margin-bottom:10px;"> <img src="{% static 'assets/img/f.svg' %}" width="15" height="auto" style="vertical-align:middle;padding-left:5px;" alt="F"> تسجيل بواسطة فيس بوك </a>
+                    <br>
+
+                    <a href="auto-login.html?login=google" class="flatbutton" style="background-color:#DB4437;margin-bottom:10px;"><img src="{% static 'assets/img/g.svg' %}" width="15" height="auto" style="vertical-align:middle;padding-left:5px;" alt="G"> تسجيل بواسطة جوجل </a>
+                    <br>
+                    <br></div>
+        </div>
+        <center>
+            <div class="box2">
+                <div class="rule">
+                    <div class="line">
+                        <div></div>
+                    </div>
+                    <div class="words"> لاتفوت الفرصة 😍 </div>
+                    <div class="line">
+                        <div></div>
+                    </div>
+                </div>
+                <center>
+                    <img src="{% static 'sarahahpro.jpg' %}" class="img" alt="#" width="100" height="100" style="display: block;">
+                    <span class="contant"> جرب الأن موقع صراحه الجديد رسائل سرية مع ميزات جديدة حصرية </span>
+                    <a onclick="javascript:location.href='https://sarahah.pro/?op=openchrome'" class="flatbutton" style="background-color:#10BBB3;width:90%;border:0;"> دخول موقع صراحة </a>
+                    <div class="apphr"> </div>
+            </div>
+            </center>
+            <div class="box" style="padding:0;direction: rtl;line-height: 40px;display:none;">
+                <br> لا تدع الفرصة تفوتك! انضم إلى صراحة الجديدة واستمتع بتجربة فريدة ومميزة.
+                <br> الآن يمكنك الاستمتاع بتجربة فريدة ومثيرة بفضل:
+                <br> 1️⃣ الرد المحادثة الخاصة على الرسائل، بدون أن تظهر للجميع.
+                <br> 2️⃣ النظام الجديد للمتابعة، حيث يمكنك عرض رسائلك فقط للمتابعين المحددين.
+                <br> 3️⃣ حساب خاص لإدارة طلبات المتابعة والمزيد من التحكم في محتواك.
+                <br> 4️⃣ تنبيهات الواتساب للرسائل الواردة، لتتلقى كل رسالة بسرعة ودون أن تفوتك.
+                <br> 5️⃣ إمكانية إرسال ما يصل إلى 3 صور في رسالة واحدة أو رد واحد.
+                <br> سارع وقم بزيارة هذا الرابط لتسجيل حسابك واكتشاف المزيد: 👇
+                <a href="https://sarahah.pro/?op=openchrome"> www.sarahah.pro </a>
+                <br>
+                <a href="https://sarahah.pro/?op=openchrome"><img src="https://sarahah.pro/assets/img/uploads/og_image.png" width="100%"></a>
+            </div>
+        </center>
+        <script>
+            function new_update() {
+
+                alerty.confirm(
+                    ' قد تواجه مشاكل في تسجيل حساب جديد لأنك تستخدم اصدار قديم من صارحني من فضلك حدث التطبيق لأخر اصدار من متجر جوجل بلاي؟  ', {
+                        title: ' تأكيد ',
+                        cancelLabel: 'لا',
+                        okLabel: 'نعم'
+                    },
+                    function() {
+                        window.location.href = "https://play.google.com/store/apps/details?id=app.sarhne.com";
+                        try {
+                            setcanback('alerty');
+                        } catch (err) {}
+                    },
+                    function() {
+
+                        try {
+                            setcanback('alerty');
+                        } catch (err) {}
+                    })
+                try {
+                    setcanback('alerty');
+                } catch (err) {}
+            }
+
+            function get_link() {
+                $('#make_link').html('<img src="assets/img/loading.svg" width="30" alt="انتظر">');
+                $.ajax({
+                    type: 'GET',
+                    url: 'ajax/account/link.html',
+                    data: $('#form').serialize(),
+                    success: function(res) {
+                        if (res == 'err') {
+                            get_link();
+                        } else {
+                            $('#link').val(res);
+                            $('.preview').html(res);
+                            $('#make_link').html(' ');
+                        }
+                    },
+                    error: function(request, status, error) {
+                        $('#make_link').html(' ');
+                        showalert("مشكلة في الموقع اعد المحاولة بعد قليل او اتصل بنا لحل المشكلة فوراً ");
+
+                    }
+                });
+            }
+
+            function signup() {
+                $('#erorrid').hide();
+                $('#ajax_wait').show();
+                $('#reg').hide();
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('6LdJbKwZAAAAAJWmzWY3iX6xjo7btSJhxT5If-Uv', {
+                        action: 'submit'
+                    }).then(function(token) {
+                        send_form(token);
+                    });
+                });
+                // smoothScroll(document.getElementById('ajax_wait'));
+            }
+
+
+            function send_form(token) {
+
+
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'ajax/account/signup.html',
+                    data: $('#form').serialize() + "&g-recaptcha-response=" + token,
+                    success: function(data) {
+                        $('#ajax_wait').hide();
+                        $('#reg').show();
+                        if (data.includes("recerorr")) {
+                            showerorr('warning', 'خطأ التحقق البشري', 'الرجاء أعادة المحاولة او اتصل بنا');
+                            showalert("خطأ التحقق البشري الرجاء أعادة المحاولة او اتصل بنا");
+                            smoothScroll(document.getElementById('erorrid'));
+
+                        } else if (data.includes("emptyname")) {
+                            showerorr('warning', 'خطأ الاسم او اللقب', 'الرجاء كتابة اسمك او لقبلك بشكل صحيح');
+                            showalert("الرجاء كتابة اسمك او لقبلك بشكل صحيح");
+                            smoothScroll(document.getElementById('erorrid'));
+
+                        } else if (data.includes("erorremail")) {
+                            showerorr('warning', 'خطأ البريد الألكتروني', 'الرجاء كتابة بريدك الألكتروني بشكل صحيح');
+                            showalert("الرجاء كتابة بريدك الألكتروني بشكل صحيح");
+                            smoothScroll(document.getElementById('erorrid'));
+
+                        } else if (data.includes("dns")) {
+                            showerorr('warning', 'خطأ البريد الألكتروني', 'لم يتم العثور على البريد الألكتروني الذي تم ادخاله الرجاء استخدام gmail او yahoo او خدمة بريد حقيقية الرجاء اعادة المحاولة');
+                            showalert("لم يتم العثور على البريد الألكتروني الذي تم ادخاله الرجاء اعادة المحاولة");
+                            smoothScroll(document.getElementById('erorrid'));
+
+                        } else if (data.includes("pasnotmatch")) {
+                            showerorr('warning', 'خطأ كلمة المرور', ' كلمات المرور غير متطابقة ');
+                            showalert(" كلمات المرور غير متطابقة الرجاء اعادة المحاولة");
+                            smoothScroll(document.getElementById('erorrid'));
+
+                        } else if (data.includes("notacceptpass")) {
+                            showerorr('warning', 'خطأ كلمة المرور', ' كلمات المرور تحتوي على حروف غير صحيحة الرجاء كتابة كلمة المرور بحرف وارقام انكليزية فقط يجب ان تكون اكثر من 3 حروف واقل من 30 حرفاً ');
+                            showalert("كلمات المرور تحتوي على حروف غير صحيحة الرجاء كتابة كلمة المرور بحرف وارقام انكليزية فقط يجب ان تكون اكثر من 3 حروف واقل من 30 حرفاً");
+                            smoothScroll(document.getElementById('erorrid'));
+
+                        } else if (data.includes("link1")) {
+                            showerorr('warning', 'خطأ أختيار الرابط', ' الرابط يحتوي على حروف غير صحيحة الرجاء كتابة الرابط بحرف وارقام انكليزية فقط ');
+                            showalert("الرابط يحتوي على حروف غير صحيحة الرجاء كتابة الرابط بحرف وارقام انكليزية فقط");
+                            smoothScroll(document.getElementById('erorrid'));
+
+                        } else if (data.includes("link2")) {
+                            showerorr('warning', 'خطأ أختيار الرابط', ' الرابط يجب ان يكون اكثر من 3 حروف واقل من 30 حرفاً ');
+                            showalert(" الرابط يجب ان يكون اكثر من 3 حروف واقل من 30 حرفاً ");
+                            smoothScroll(document.getElementById('erorrid'));
+
+                        } else if (data.includes("gender")) {
+                            showerorr('warning', 'خطأ أختيار الجنس ', ' أختر جنسك من فضلك  ');
+                            showalert("  أختر جنسك من فضلك ");
+                            smoothScroll(document.getElementById('erorrid'));
+
+                        } else if (data.includes("emailused")) {
+                            showerorr('warning', 'خطأ البريد الألكتروني ', 'تم استخدام البريد الألكتروني الذي ادخلته من قبل شخص أخر الرجاء ادخال بريد مختلف او انتقل لصفحة تسجيل الدخول واستخدم هذا البريد للدخول الى حسابك    ');
+                            showalert("تم استخدام البريد الألكتروني الذي ادخلته من قبل شخص أخر الرجاء ادخال بريد مختلف او انتقل لصفحة تسجيل الدخول واستخدم هذا البريد للدخول الى حسابك ");
+                            smoothScroll(document.getElementById('erorrid'));
+
+                        } else if (data.includes("linkused")) {
+                            showerorr('warning', 'خطأ أختيار الرابط ', ' الرابط الذي قمت باختياره غير متاح مستخدم من قبل شخص اخر من فضلك اختر رابط مختلف او انقر على خيار توليد رابط ');
+                            showalert("الرابط الذي قمت باختياره غير متاح مستخدم من قبل شخص اخر من فضلك اختر رابط مختلف او انقر على خيار توليد رابط ");
+                            smoothScroll(document.getElementById('erorrid'));
+                            grecaptcha.reset();
+                        } else if (data.includes("mysqlerorr")) {
+                            showerorr('warning', 'مشكلة في الموقع  ', ' اعد المحاولة بعد قليل او اتصل بنا لحل المشكلة فوراً  ');
+                            showalert("مشكلة في الموقع اعد المحاولة بعد قليل او اتصل بنا لحل المشكلة فوراً ");
+                            smoothScroll(document.getElementById('erorrid'));
+
+                        } else if (data.includes("security_err")) {
+                            showerorr('warning', 'مشكلة في الحماية  ', ' اعد المحاولة بعد قليل او اتصل بنا لحل المشكلة فوراً  ');
+                            showalert("مشكلة في حماية الموقع اعد المحاولة بعد قليل او اتصل بنا لحل المشكلة فوراً ");
+                            smoothScroll(document.getElementById('erorrid'));
+
+                        } else if (data.includes("succ")) {
+                            $('#erorrid').hide();
+                            $('#ajax_wait').hide();
+                            $('#reg').hide();
+                            $('#succ').show();
+                            window.location.replace("profile_photo.html");
+                        }
+                    },
+                    error: function(request, status, error) {
+
+                        showerorr('warning', 'مشكلة في الموقع  ', ' اعد المحاولة بعد قليل او اتصل بنا لحل المشكلة فوراً  ');
+                        showalert("مشكلة في الموقع اعد المحاولة بعد قليل او اتصل بنا لحل المشكلة فوراً ");
+                        smoothScroll(document.getElementById('erorrid'));
+
+                    }
+                });
+
+
+
+
+            }
+
+            function showerorr(type, title, msg) {
+                $('#erorrid').show();
+                document.getElementById('erorrid').innerHTML = "<div class='notification " + type + "' dir='rtl'><span class='notification-close'>&times;</span><h3 class='notification-title'>" + title + "</h3><p class='notification-message'>" + msg + "</p></div>";
+            }
+        </script>
+        <script src="assets/js/func.js?v=1598020502"></script>
+        <script src="assets/js/alerty.js?v2"></script>
+        <script src="assets/js/toast.js"></script>
+        <div id="footer">
+            <center> <br>
+                <a href="https://www.facebook.com/Sarhne.Official/"><img src="{% static 'assets/img/ffacebook.svg' %}" width="50" height="auto"> &nbsp; </a>
+                <a href="https://www.instagram.com/sarhne_official/?swa33"><img src="{% static 'assets/img/finstagram.svg' %}" width="50" height="auto"> &nbsp; </a>
+                <a href="#"><img src="{% static 'assets/img/fwhatsapp.svg' %}" width="50" height="auto"> &nbsp; </a>
+                <a href="https://play.google.com/store/apps/details?id=app.sarhne.com"><img src="{% static 'assets/img/fandroid.svg' %}" width="50" height="auto"></a>
+                <br>
+                <small> جميع الحقوق محفوظة © 2023 </small>
+                <br>
+                <a href="{% url 'index' %}" class="wh"> صارحني </a> - <a href="{% url 'Privacy' %}" class="wh"> الخصوصية </a> - <a href="{% url 'Terms' %}" class="wh"> القوانين </a> - <a href="{% url 'contact_us'%}" class="wh"> اتصل بنا </a>                <img src="{% static 'assets/img/sarhne-footer.png' %}" width="20" alt="2023">
+                <br> <br> </center>
+        </div>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZRDMJGQHJC"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-ZRDMJGQHJC');
+        </script>
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"8580b08248517182","version":"2024.2.1","token":"218cd1753fe64a258e6d9b2b19630e7e"}'
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

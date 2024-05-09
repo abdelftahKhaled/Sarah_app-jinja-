@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<title> لم يتم العثور على الصفحة المطلوبة </title>
+<link href="https://www.sarhne.com/assets/style.css" rel="stylesheet"> <link rel="stylesheet" type="text/css" href="assets/icofont.min.css">
+</head>
+<body id="body">
+<center>
+<div id="top">
+<br>
+<br><br>
+</div>
+<div id="center"> <div class="center">
+<br><img src="assets/img/help.svg" width="60" alt="#"><br>
+<div class="logo"><h3>
+404
+</h3> </div>
+<small>
+<font color="#000">
+لم يتم العثور على الصفحة المطلوبة
+</font> </small>
+<br>
+<a href="https://www.sarhne.com"> الصفحة الرئيسية لموقع صارحني </a>
+<br> <br>
+</section>
+</center><br></div>
+</div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"8580b0347f767182","version":"2024.2.1","token":"218cd1753fe64a258e6d9b2b19630e7e"}' crossorigin="anonymous"></script>
+</body>
+</html> 

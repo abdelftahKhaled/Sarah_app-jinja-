@@ -1,0 +1,161 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <title> اتصل بنا | صارحني </title>
+    <link href="{% static 'assets/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/icofont.min.css' %}">
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/ar_AR/sdk.js#xfbml=1&version=v3.2&appId=246308556039769&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+</head>
+
+<body id="body">
+    <div class="tabs">
+        <div class="tab"><a href="https://www.sarhne.com/">
+الرئيسية
+</a></div>
+        <div class="tab"><a href="signin.html">
+دخول
+</a></div>
+        <div class="tab"><a href="signup.html">
+أشتراك
+</a></div>
+        <div class="tab"><a href="help.html">
+تعليمات
+</a></div>
+        <div class="tab"><a href="contact_us.html"> <span class="active">
+أتصل بنا
+</span> </a></div>
+    </div>
+    <div class="nav" dir="rtl">
+        <div class="nav-header">
+            <div class="nav-title">
+                <img src="{% static 'assets/img/sarhne-nav.png' %}" height="40" alt="Sarhne">
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+<section></section>
+<section></section>
+<section></section>
+</label>
+        </div>
+        <input type="checkbox" id="nav-check">
+        <div class="nav-links">
+            <a href="{% url 'index'%}">الرئيسية</a>
+            <a href="{% url 'signup'%}"><span class="active"> أشتراك </span></a>
+            <a href="{% url 'signin'%}"> تسجل الدخول </a>
+            <a href="{% url 'help'%}">تعليمات</a>
+            <a href="{% url 'contact_us'%}">اتصل بنا</a>
+        </div>
+    </div>
+    <center>
+        <div id="top">
+            <br><img src="{% static 'assets/img/help.svg' %}" width="60" alt="#"><br>
+            <div class="logo">
+                <h3>
+                    اتصل بنا
+                </h3>
+            </div>
+            <br><br>
+        </div>
+        </div>
+        <div id="center">
+            <div class="center" dir="rtl">
+                <br><br> إذا كنت بحاجة إلى أي مزيد من المعلومات أو لديك أية أسئلة ، لا تتردد في الاتصال بنا
+                <div class="cyellow">
+                    <h3>
+                        بواسطة البريد الألكتروني
+                    </h3>
+                </div>
+                <h3>
+                    <a href="mailto:hi@sarhne.com" style="color: #f1776c;"> hi@sarhne.com </a>
+                </h3> <br>
+                <div class="cyellow">
+                    <h3>
+                        تابعنا عبر انستغرام
+                    </h3>
+                </div>
+                <a href="https://www.instagram.com/sarhne_official/?swa33" class="white" target="_blank"> sarhne_official </a>
+                <br><br>
+                <div class="cyellow">
+                    <h3>
+                        رابط صفحتنا على الفيس بوك
+                    </h3>
+                </div>
+                <a href="https://www.facebook.com/Sarhne.Official" class="white" target="_blank"> https://www.facebook.com/Sarhne.Official </a>
+                <br><br>
+                <div class="fb-page" data-href="https://www.facebook.com/Sarhne.Official/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/Sarhne.Official/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Sarhne.Official/">‏صارحني‏</a></blockquote>
+                </div>
+            </div>
+        </div>
+    </center> <br></div>
+    </div>
+    <script>
+        function screenClass() {
+            if ($(window).innerWidth() > 1200) {
+                $('.tabs').hide();
+                $('.nav').show();
+            } else {
+                $('.nav').hide();
+                $('.tabs').show();
+            }
+        }
+
+        // Fire.
+        screenClass();
+
+        // And recheck when window gets resized.
+        $(window).bind('resize', function() {
+            screenClass();
+        });
+    </script>
+    <script src="{% static 'assets/js/func.js' %}"></script>
+    <script src="{% static 'assets/js/alerty.js' %}"></script>
+    <script src="{% static 'assets/js/toast.js' %}"></script>
+    <div id="footer">
+        <center> <br>
+            <a href="https://www.facebook.com/Sarhne.Official/"><img src="{% static 'assets/img/ffacebook.svg' %}" width="50" height="auto"> &nbsp; </a>
+            <a href="https://www.instagram.com/sarhne_official/?swa33"><img src="{% static 'assets/img/finstagram.svg' %}" width="50" height="auto"> &nbsp; </a>
+            <a href="#"><img src="{% static 'assets/img/fwhatsapp.svg' %}" width="50" height="auto"> &nbsp; </a>
+            <a href="https://play.google.com/store/apps/details?id=app.sarhne.com"><img src="{% static 'assets/img/fandroid.svg' %}" width="50" height="auto"></a>
+            <br>
+            <small> جميع الحقوق محفوظة © 2023 </small>
+            <br>
+            <a href="index.html" class="wh"> صارحني </a> - <a href="https://www.sarhne.com/Privacy.html" class="wh"> الخصوصية </a> - <a href="https://www.sarhne.com/Terms.html" class="wh"> القوانين </a> - <a href="contact_us.html" class="wh"> اتصل بنا </a>            <img src="{% static 'assets/img/sarhne-footer.png" width="20" alt="2021">
+            <br> <br> </center>
+    </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZRDMJGQHJC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZRDMJGQHJC');
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"8580b1cd9b5f7182","version":"2024.2.1","token":"218cd1753fe64a258e6d9b2b19630e7e"}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

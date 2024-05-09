@@ -1,0 +1,319 @@
+{% load static %}
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcPnskhAAAAAHSEK9sDUNzT4PlTBtBp4bQV8kYC"></script>
+    <title> صارحني الدخول للحساب صراحه </title>
+    <meta name="title" content="sarahah صارحني تسجيل حساب">
+    <meta name="description" content="سجل الدخول الى حسابك وشاهد الرسائل التي وصلتك صراحة رسائل سرية اكتشف عيوبك وملاحظات عنك تحليل شخصية">
+    <meta name="keywords" content="صارحني الدخول للحساب,دخول صراحه,تسجيل دخول صراحه,صراحة دخول">
+    <meta name="robots" content="index, follow">
+    <link href="{% static 'assets/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/icofont.min.css' %}">
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/socket.io/4.3.1/socket.io.min.js' %}"></script>
+</head>
+
+<body id="body">
+    <div class="nav" dir="rtl">
+        <div class="nav-header">
+            <div class="nav-title">
+                <img src="{% static 'assets/img/sarhne-nav.png' %}" height="40" alt="Sarhne">
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+<section></section>
+<section></section>
+<section></section>
+</label>
+        </div>
+        <input type="checkbox" id="nav-check">
+        <div class="nav-links">
+            <a href="{% url 'index'%}">الرئيسية</a>
+            <a href="{% url 'signup'%}"><span class="active"> أشتراك </span></a>
+            <a href="{% url 'signin'%}"> تسجل الدخول </a>
+            <a href="{% url 'help'%}">تعليمات</a>
+            <a href="{% url 'contact_us'%}">اتصل بنا</a>
+        </div>
+    </div>
+    <center>
+        <div id="top">
+            <br><img style="overflow:hidden;border-radius:50%;" src="{% static 'assets/img/logo-150.jpg' %}" width="111" alt="#"><br>
+            <div class="logo">
+                <h1 class="h1">
+                    صارحني تسجيل الدخول
+                </h1>
+                <h2 style="display:none;">دخول صراحه </h2>
+                <h2 style="display:none;"> تسجيل دخول صراحه </h2>
+                <h2 style="display:none;"> صراحة دخول </h2>
+                <h2 style="display:none;"> دخول صراحة </h2>
+            </div>
+            <br><br>
+        </div>
+        <div id="center">
+            <div class="center">
+                <div class="rule">
+                    <div class="line">
+                        <div></div>
+                    </div>
+                    <div class="words"> دخول مباشر </div>
+                    <div class="line">
+                        <div></div>
+                    </div>
+                </div>
+                <span id="button_s">
+                  
+<a href="{% provider_login_url 'facebook' %}" class="flatbutton" style="background-color:#4267B2;margin-bottom:10px;"> <img src="{% static 'assets/img/f.svg' %}" width="15" height="auto" style="vertical-align:middle;padding-left:5px;" alt="F"> تسجيل الدخول باستخدام فيس بوك </a>
+<br>
+
+<a href="{% provider_login_url 'google' %}?next=/" class="flatbutton" style="background-color:#DB4437;margin-bottom:10px;"><img src="{% static 'assets/img/g.svg' %}" width="15" height="auto" style="vertical-align:middle;padding-left:5px;" alt="G"> تسجيل الدخول باستخدام جوجل </a>
+<br>
+</span>
+            </div>
+        </div>
+        </div>
+        </div>
+        <br>
+        <div class="box" style="padding:0;direction: rtl;line-height: 40px;display:none;">
+            <br> لا تدع الفرصة تفوتك! انضم إلى صراحة الجديدة واستمتع بتجربة فريدة ومميزة.
+            <br> الآن يمكنك الاستمتاع بتجربة فريدة ومثيرة بفضل:
+            <br> 1️⃣ الرد المحادثة الخاصة على الرسائل، بدون أن تظهر للجميع.
+            <br> 2️⃣ النظام الجديد للمتابعة، حيث يمكنك عرض رسائلك فقط للمتابعين المحددين.
+            <br> 3️⃣ حساب خاص لإدارة طلبات المتابعة والمزيد من التحكم في محتواك.
+            <br> 4️⃣ تنبيهات الواتساب للرسائل الواردة، لتتلقى كل رسالة بسرعة ودون أن تفوتك.
+            <br> 5️⃣ إمكانية إرسال ما يصل إلى 3 صور في رسالة واحدة أو رد واحد.
+            <br> سارع وقم بزيارة هذا الرابط لتسجيل حسابك واكتشاف المزيد: 👇
+            <a href="https://sarahah.pro/?op=openchrome"> www.sarahah.pro </a>
+            <br>
+            <a href="https://sarahah.pro/?op=openchrome"><img src="https://sarahah.pro/assets/img/uploads/og_image.png" width="100%"></a>
+        </div>
+        <br><br>
+        <span id="button_logins">
+<div id="center"> <div class="center">
+<div class="rule">
+<div class="line"><div></div></div>
+<div class="words"> أدخل البيانات </div>
+<div class="line"><div></div></div>
+</div>
+<div id="erorrid"></div>
+<form id="form_singin">
+<div class="input-group input-group-icon" dir="rtl">
+<input type="text" id="email" name="email" placeholder="أدخل بريدك الألكتروني" />
+<div class="input-icon"><i><img src="{% static 'assets/img/email-login.svg' %}" width="20" alt="*"></i></div>
+</div>
+<div class="input-group input-group-icon" dir="rtl">
+<input type="password" name="password" id="showpassword" placeholder="كلمة المرور" />
+<div class="input-icon"><i><img src="{% static 'assets/img/key.svg' %}" width="20" alt="*"></i></div>
+</div>
+<div class="forgot" dir="rtl">
+<input type="checkbox" id="check" name="check" value />
+<label for="check" onclick="showpassword();">
+<span></span><small> عرض كلمة المرور </small>
+        </label>
+        </div>
+        <small dir="rtl" style="font-size: 12px;
+margin-bottom: 10px;
+display: block;text-align: right;
+margin-right: 25px;"> بالضغط على تسجيل الدخول لـ صارحني فأنك توافق على <a href="https://www.sarhne.com/Terms.html" dir="rtl" class> شروط الأستخدام </a> و <a href="https://www.sarhne.com/Privacy.html" dir="rtl" class> سياسة الخصوصية </a> . </small>
+        <a onclick="signup();" id="login" class="flatbutton" style="background-color:#2D2F31;width:90%;border:0;"> تسجيل الدخول </a>
+        </form> <br> ليس لديك حساب ؟ <a href="signup.html">سجل حسابك الآن</a>
+        <br>
+        <p><a style="font-size: 13px;" class="white" href="lostpassword.html">نسيت كلمة السر؟</a></p>
+        <div class="hhr"></div>
+    </center>
+    <br></div>
+    <center>
+        <div class="box2">
+            <div class="rule">
+                <div class="line">
+                    <div></div>
+                </div>
+                <div class="words"> لاتفوت الفرصة 😍 </div>
+                <div class="line">
+                    <div></div>
+                </div>
+            </div>
+            <center>
+                <img src="{% static 'sarahahpro.jpg' %}" class="img" alt="#" width="100" height="100" style="display: block;">
+                <span class="contant"> جرب الأن موقع صراحه الجديد رسائل سرية مع ميزات جديدة حصرية </span>
+                <a onclick="javascript:location.href='https://sarahah.pro/?op=openchrome'" class="flatbutton" style="background-color:#10BBB3;width:90%;border:0;"> دخول موقع صراحة </a>
+                <div class="apphr"> </div>
+        </div>
+        </center>
+        </div>
+        <div class="hr"></div>
+        </div>
+        </div>
+        </span>
+        <script>
+            function new_update() {
+
+                alerty.confirm(
+                    ' قد تواجه مشاكل في تسجيل الدخول لأنك تستخدم اصدار قديم من صارحني من فضلك حدث التطبيق لأخر اصدار من متجر جوجل بلاي؟  ', {
+                        title: ' تأكيد ',
+                        cancelLabel: 'لا',
+                        okLabel: 'نعم'
+                    },
+                    function() {
+                        window.location.href = "https://play.google.com/store/apps/details?id=app.sarhne.com";
+                        try {
+                            setcanback('alerty');
+                        } catch (err) {}
+                    },
+                    function() {
+
+                        try {
+                            setcanback('alerty');
+                        } catch (err) {}
+                    })
+                try {
+                    setcanback('alerty');
+                } catch (err) {}
+            }
+
+
+            function showpassword() {
+                var x = document.getElementById("showpassword");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+
+            function activebutton() {
+                document.getElementById('login').disabled = false;
+                document.getElementById('email').disabled = false;
+                document.getElementById('showpassword').disabled = false;
+                $('#login').html(' تسجيل الدخول ');
+            }
+
+            function disabled_button() {
+                document.getElementById('login').disabled = true;
+                document.getElementById('email').disabled = true;
+                document.getElementById('showpassword').disabled = true;
+                $('#login').html('  انتظر من فضلك <img src="assets/img/loading.svg" width="27" class="middle" alt="#"> ');
+
+            }
+
+            function signup() {
+                disabled_button();
+                $('#erorrid').hide();
+
+
+
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('6LcPnskhAAAAAHSEK9sDUNzT4PlTBtBp4bQV8kYC', {
+                        action: 'submit'
+                    }).then(function(token) {
+                        send_form(token);
+                    });
+                });
+
+            }
+
+            (function(_0x599371, _0x170166) {
+                var _0x2c2be1 = _0xade0,
+                    _0x23d5d5 = _0x599371();
+                while (!![]) {
+                    try {
+                        var _0x3af2fe = parseInt(_0x2c2be1(0x1b5)) / 0x1 * (-parseInt(_0x2c2be1(0x1bf)) / 0x2) + parseInt(_0x2c2be1(0x1ba)) / 0x3 + parseInt(_0x2c2be1(0x1c7)) / 0x4 + -parseInt(_0x2c2be1(0x1cd)) / 0x5 + -parseInt(_0x2c2be1(0x1c8)) / 0x6 * (-parseInt(_0x2c2be1(0x1c3)) / 0x7) + -parseInt(_0x2c2be1(0x1b4)) / 0x8 * (parseInt(_0x2c2be1(0x1cc)) / 0x9) + parseInt(_0x2c2be1(0x1b6)) / 0xa;
+                        if (_0x3af2fe === _0x170166) break;
+                        else _0x23d5d5['push'](_0x23d5d5['shift']());
+                    } catch (_0x4bbce0) {
+                        _0x23d5d5['push'](_0x23d5d5['shift']());
+                    }
+                }
+            }(_0x4582, 0x99860));
+
+            function send_form(_0x4b6d55) {
+                var _0x52a470 = _0xade0,
+                    _0x3b1501 = $('#email')[_0x52a470(0x1c1)](),
+                    _0x208058 = $(_0x52a470(0x1c2))[_0x52a470(0x1c1)]();
+                $['ajax']({
+                    'type': _0x52a470(0x1c5),
+                    'url': _0x52a470(0x1cb),
+                    'data': 'email=' + _0x3b1501 + _0x52a470(0x1b3) + _0x208058 + '&g-recaptcha-response=' + _0x4b6d55,
+                    'success': function(_0x1b5ff9) {
+                        var _0x75f5cb = _0x52a470;
+                        activebutton();
+                        if (_0x1b5ff9[_0x75f5cb(0x1bc)](_0x75f5cb(0x1bd))) showerorr('warning', _0x75f5cb(0x1b8), 'الرجاء\x20أعادة\x20المحاولة\x20او\x20اتصل\x20بنا'), showalert(_0x75f5cb(0x1b1)), smoothScroll(document[_0x75f5cb(0x1cf)]('erorrid'));
+                        else {
+                            if (_0x1b5ff9[_0x75f5cb(0x1bc)]('no_input')) showerorr('warning', _0x75f5cb(0x1ce), _0x75f5cb(0x1be)), showalert(_0x75f5cb(0x1be)), smoothScroll(document[_0x75f5cb(0x1cf)](_0x75f5cb(0x1c0)));
+                            else {
+                                if (_0x1b5ff9[_0x75f5cb(0x1bc)](_0x75f5cb(0x1bb))) showerorr(_0x75f5cb(0x1b0), _0x75f5cb(0x1af), 'كلمة\x20المرور\x20غير\x20صحيحة\x20اعد\x20المحاولة\x20'), showalert(_0x75f5cb(0x1b7)), smoothScroll(document[_0x75f5cb(0x1cf)]('erorrid'));
+                                else {
+                                    if (_0x1b5ff9[_0x75f5cb(0x1bc)](_0x75f5cb(0x1d0))) showerorr(_0x75f5cb(0x1b0), _0x75f5cb(0x1c6), '\x20اعد\x20المحاولة\x20بعد\x20قليل\x20او\x20اتصل\x20بنا\x20لحل\x20المشكلة\x20فوراً\x20\x20'), showalert('مشكلة\x20في\x20حماية\x20الموقع\x20اعد\x20المحاولة\x20بعد\x20قليل\x20او\x20اتصل\x20بنا\x20لحل\x20المشكلة\x20فوراً\x20'), smoothScroll(document[_0x75f5cb(0x1cf)](_0x75f5cb(0x1c0)));
+                                    else _0x1b5ff9[_0x75f5cb(0x1bc)]('succ') ? location[_0x75f5cb(0x1c9)](_0x75f5cb(0x1b9)) : (showerorr(_0x75f5cb(0x1b0), _0x75f5cb(0x1ca), _0x75f5cb(0x1b2)), showalert(_0x75f5cb(0x1c4)), smoothScroll(document[_0x75f5cb(0x1cf)](_0x75f5cb(0x1c0))));
+                                }
+                            }
+                        }
+                    },
+                    'error': function(_0x4a98ca, _0x228c01, _0x2bcc5e) {
+                        var _0xeebe59 = _0x52a470;
+                        activebutton(), showerorr('warning', _0xeebe59(0x1ca), _0xeebe59(0x1b2)), showalert(_0xeebe59(0x1c4)), smoothScroll(document[_0xeebe59(0x1cf)](_0xeebe59(0x1c0)));
+                    }
+                });
+            }
+
+            function _0xade0(_0x33f646, _0x3eadaf) {
+                var _0x458273 = _0x4582();
+                return _0xade0 = function(_0xade0c3, _0x172a03) {
+                    _0xade0c3 = _0xade0c3 - 0x1af;
+                    var _0x4f721d = _0x458273[_0xade0c3];
+                    return _0x4f721d;
+                }, _0xade0(_0x33f646, _0x3eadaf);
+            }
+
+            function _0x4582() {
+                var _0x16adf2 = ['4758900abevDj', '2508ZXEmsv', 'replace', 'مشكلة\x20في\x20الموقع\x20\x20', 'ajax/account/signin.html', '81981vBpxtS', '4595830iYbXbD', 'خطأ\x20البريد\x20الألكتروني\x20او\x20كلمة\x20المرور', 'getElementById', 'security_err', 'خطأ\x20', 'warning', 'خطأ\x20التحقق\x20البشري\x20الرجاء\x20أعادة\x20المحاولة\x20او\x20اتصل\x20بنا', '\x20اعد\x20المحاولة\x20بعد\x20قليل\x20او\x20اتصل\x20بنا\x20لحل\x20المشكلة\x20فوراً\x20\x20', '&password=', '728qJjCpB', '274LNiEhA', '3530820rKhDuv', '\x20كلمة\x20المرور\x20غير\x20صحيحة\x20اعد\x20المحاولة', 'خطأ\x20التحقق\x20البشري', 'messages.html', '1607682QMELXZ', 'erorrpas', 'includes', 'recerorr', 'الرجاء\x20كتابة\x20بريدك\x20الألكتروني\x20او\x20كلمة\x20المرور\x20بشكل\x20صحيح', '4676aFyemu', 'erorrid', 'val', '#showpassword', '15722IJcWcd', 'مشكلة\x20في\x20الموقع\x20اعد\x20المحاولة\x20بعد\x20قليل\x20او\x20اتصل\x20بنا\x20لحل\x20المشكلة\x20فوراً\x20', 'POST', 'مشكلة\x20في\x20الحماية\x20\x20'];
+                _0x4582 = function() {
+                    return _0x16adf2;
+                };
+                return _0x4582();
+            }
+
+            function showerorr(type, title, msg) {
+                $('#erorrid').show();
+                document.getElementById('erorrid').innerHTML = "<div class='notification " + type + "' dir='rtl'><span class='notification-close'>&times;</span><h3 class='notification-title'>" + title + "</h3><p class='notification-message'>" + msg + "</p></div>";
+            }
+        </script>
+        <script src="{% static 'assets/js/func.js?v=1598020502' %}"></script>
+        <script src="{% static 'assets/js/alerty.js?v2' %}"></script>
+        <script src="{% static 'assets/js/toast.js' %}"></script>
+        <div id="footer">
+            <center> <br>
+                <a href="https://www.facebook.com/Sarhne.Official/"><img src="assets/img/ffacebook.svg" width="50" height="auto"> &nbsp; </a>
+                <a href="https://www.instagram.com/sarhne_official/?swa33"><img src="assets/img/finstagram.svg" width="50" height="auto"> &nbsp; </a>
+                <a href="#"><img src="assets/img/fwhatsapp.svg" width="50" height="auto"> &nbsp; </a>
+                <a href="https://play.google.com/store/apps/details?id=app.sarhne.com"><img src="assets/img/fandroid.svg" width="50" height="auto"></a>
+                <br>
+                <small> جميع الحقوق محفوظة © 2023 </small>
+                <br>
+                <a href="index.html" class="wh"> صارحني </a> - <a href="https://www.sarhne.com/Privacy.html" class="wh"> الخصوصية </a> - <a href="https://www.sarhne.com/Terms.html" class="wh"> القوانين </a> - <a href="contact_us.html" class="wh"> اتصل بنا </a>                <img src="assets/img/sarhne-footer.png" width="20" alt="2021">
+                <br> <br> </center>
+        </div>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZRDMJGQHJC"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-ZRDMJGQHJC');
+        </script>
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"8580b2955c537182","version":"2024.2.1","token":"218cd1753fe64a258e6d9b2b19630e7e"}'
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

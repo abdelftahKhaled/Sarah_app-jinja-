@@ -1,0 +1,116 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <div class="hero">
+        <center>
+            <div class="herobkg"></div>
+            <div class="hero__overlay hero__overlay--gradient"></div>
+            <div class="hero__mask"></div>
+            <div class="hero__inner">
+                <div class="container">
+                    <div class="hero__content">
+                        <div class="hero__content__inner" id="navConverter">
+                            <h1 class="hero__title logo"> صارحني بكل صراحه </h1>
+                            <p class="hero__text"> هل أنت مستعد لمعرفة ملاحظات الناس عنك بدون أن تعرفهم ؟ </p>
+                            <p class="hero__text" style="color:#fff;height:30px;" id="ityped" class="ityped"></p>
+        
+                            <a href="{% url 'account_login'%}" title=" صارحني رسائلي" class="button button__accent" style="background-color:#1D628B;">
+                  <img src="{% static 'assets/img/main-login.svg' %}" width="20" height="auto" style="vertical-align:middle;padding-right:5px;padding-top:3px;" alt="#"> دخول للحساب </a>
+                            <a href="{% url 'account_signup'%}" title="صارحني تسجيل اشتراك جديد" class="button button__accent" style="background-color:#F1786C;">
+                    <img src="{% static 'assets/img/main-add.svg' %}" width="20" height="auto" style="vertical-align:middle;padding-right:5px;padding-top:3px;" alt="#"> تسجيل حساب جديد </a>
+                        </div>
+        </center>
+        </div>
+        </div>
+        </div>
+    </div>
+    <a class="next-section" id="howto">
+        <div class="arrow bounce">
+            <img src="{% static 'assets/img/next-section.svg' %}" alt="!" width="20">
+        </div>
+    </a>
+
+    <div class="steps landing__section">
+        <div class="container">
+            <h2>
+                شرح موقع بصراحة
+            </h2>
+        </div>
+        <div class="container">
+            <div class="steps__inner">
+                <div class="step">
+                    <div class="step__media">
+                        <img src="{% static 'assets/img/step1.svg' %}" class="step__image">
+                    </div>
+                    <h4> انشاء حساب صراحة </h4>
+                    <p class="step__text"> يمكنك تسجيل حساب عبر بريدك الإلكتروني او الحسابات الإجتماعية بسهولة </p>
+                </div>
+                <div class="step">
+                    <div class="step__media">
+                        <img src="{% static 'assets/img/step2.svg' %}" class="step__image">
+                    </div>
+                    <h4>مشاركة رابط صراحة </h4>
+                    <p class="step__text"> عند حصولك على الرابط الخاص بك يمكنك نشره عبر مواقع التواصل الإجتماعي لتحصل على ملاحظات دون ان تعرف المصدر </p>
+                </div>
+                <div class="step">
+                    <div class="step__media">
+                        <img src="{% static 'assets/img/step3.svg' %}" class="step__image">
+                    </div>
+                    <h4> صارحني رسائلي إقرأ ما كتبه الناس عنك </h4>
+                    <p class="step__text"> عند دخولك لحسابك ستجد كل الملاحظات التي قام بكتابها أصدقائك عنك ، أنت وحدك من يمكنه قرائتها </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="expanded landing__section">
+        <h2 style="display:none;">
+            صارحني رسائلي
+        </h2>
+        <h3 style="display:none;">
+            موقع صراحة الجديد
+        </h3>
+        <h3 style="display:none;">
+            sarahah
+        </h3>
+        <h3>
+            كيفية استخدام موقع صراحة
+        </h3>
+        <img src="{% static 'assets/img/main_how_to.png' %}" width="280">
+        <p class="cta__sub cta__sub--center">
+            يمكن اعتبار صراحة بسيطًا للغاية، فبمجرد التسجيل باستخدام اسم مستخدم وكلمة مرور ستتمكن من مشاركة رابط ملف التعريف الخاص بك على أي من مواقع التواصل الاجتماعي والطلب من الناس استخدام الرابط لتقديم تعليقاتهم لك. يمكن للأشخاص كتابة أي شيءٍ بشكلٍ مجهولٍ وسيتم
+            تسليمه لك من خلال التطبيق أو الموقع
+        </p>
+    </div>
+   
+    <div class="expanded landing__section">
+        <br> <br>
+    </div>
+
+
+        <script src="{% static 'assets/js/index.js' %}"></script>
+        <script src="={% static 'assets/js/typing.js' %}"></script>
+        <script>
+            ityped.init('#ityped', {
+                strings: ['أحصل على رسائل سرية من زملائك بصراحة', 'إعرف مزاياك و عيوبك، وما يعتقده الناس عنك', 'عزز شخصيتك بمعرفة الواقع بعيدا عن النفاق', 'واجه الصراحة التي أخفتها عنك المجاملات'],
+                startDelay: 800,
+                loop: true
+            });
+        </script>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZRDMJGQHJC"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-ZRDMJGQHJC');
+        </script>
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"8580b02c5cf37182","version":"2024.2.1","token":"218cd1753fe64a258e6d9b2b19630e7e"}'
+            crossorigin="anonymous"></script>
+            {% endblock %}

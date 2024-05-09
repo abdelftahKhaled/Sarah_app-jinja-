@@ -1,0 +1,132 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <title> تسجل الخروج | صارحني </title>
+    <link href="{% static 'assets/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/icofont.min.css' %}">
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+</head>
+
+<body id="body">
+    <div class="tabs">
+        <div class="tab"><a href="messages.html" onclick="showad();">
+رسائلي
+</a></div>
+        <div class="tab"><a href="setting.html" onclick="showad();">
+الأعدادات
+</a></div>
+        <div class="tab"><a href="chat33.html" onclick="showad();">
+مجتمع
+</a></div>
+        <div class="tab"><a href="help.html" onclick="showad();">
+تعليمات
+</a></div>
+        <div class="tab"><a href="logout.html" onclick="showad();"> <span class="active">
+الخروج
+</span></a></div>
+    </div>
+    <div class="nav" dir="rtl">
+        <div class="nav-header">
+            <div class="nav-title">
+                <img src="{% static 'assets/img/sarhne-nav.png' %}" height="40" alt="Sarhne">
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+<section></section>
+<section></section>
+<section></section>
+</label>
+        </div>
+        <input type="checkbox" id="nav-check">
+        <div class="nav-links">
+            <a href="{% url 'index'%}">الرئيسية</a>
+            <a href="{% url 'signup'%}"><span class="active"> أشتراك </span></a>
+            <a href="{% url 'signin'%}"> تسجل الدخول </a>
+            <a href="{% url 'help'%}">تعليمات</a>
+            <a href="{% url 'contact_us'%}">اتصل بنا</a>
+        </div>
+    </div>
+    <center>
+        <div id="top">
+            <br>
+            <br><br>
+        </div>
+        <div id="center">
+            <div class="center">
+                <br><img src="{% static 'assets/img/help.svg' %}" width="60" alt="#"><br>
+                <div class="logo">
+                    <h3>
+                        تأكيد تسجيل الخروج
+                    </h3>
+                </div>
+                <small>
+<font color="#000">
+هل أنت متأكد من تسجيل الخروج ؟ لن تكون قادراً على مشاهدة الرسائل الواردة تتطلب تسجيل الدخول مجدداً؟
+</font> </small>
+                <br>
+                <a href="logout.html?do=ok" class="flatbutton" style="background-color:#EA4335;width:90%;border:0;"> تسجيل الخروج </a>
+                <br> <br>
+                <a href="https://www.sarhne.com"> الصفحة الرئيسية لموقع صارحني </a>
+                <br> <br>
+                </section>
+    </center><br></div>
+    </div>
+    <script>
+        function screenClass() {
+            if ($(window).innerWidth() > 1200) {
+                $('.tabs').hide();
+                $('.nav').show();
+            } else {
+                $('.nav').hide();
+                $('.tabs').show();
+            }
+        }
+
+        // Fire.
+        screenClass();
+
+        // And recheck when window gets resized.
+        $(window).bind('resize', function() {
+            screenClass();
+        });
+    </script>
+    <script src="{% static 'assets/js/func.js' %}"></script>
+    <script src="{% static 'assets/js/alerty.js' %}"></script>
+    <script src="{% static 'assets/js/toast.js' %}"></script>
+    <div id="footer">
+        <center> <br>
+            <a href="https://www.facebook.com/Sarhne.Official/"><img src="{% static 'assets/img/ffacebook.svg' %}" width="50" height="auto"> &nbsp; </a>
+            <a href="https://www.instagram.com/sarhne_official/?swa33"><img src="{% static 'assets/img/finstagram.svg' %}" width="50" height="auto"> &nbsp; </a>
+            <a href="#"><img src="{% static 'assets/img/fwhatsapp.svg' %}" width="50" height="auto"> &nbsp; </a>
+            <a href="https://play.google.com/store/apps/details?id=app.sarhne.com"><img src="{% static 'assets/img/fandroid.svg' %}" width="50" height="auto"></a>
+            <br>
+            <small> جميع الحقوق محفوظة © 2023 </small>
+            <br>
+            <a href="index.html" class="wh"> صارحني </a> - <a href="https://www.sarhne.com/Privacy.html" class="wh"> الخصوصية </a> - <a href="https://www.sarhne.com/Terms.html" class="wh"> القوانين </a> - <a href="contact_us.html" class="wh"> اتصل بنا </a>            <img src="{% static 'assets/img/sarhne-footer.png' %}" width="20" alt="2021">
+            <br> <br> </center>
+    </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZRDMJGQHJC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZRDMJGQHJC');
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"8580afe00b827182","version":"2024.2.1","token":"218cd1753fe64a258e6d9b2b19630e7e"}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

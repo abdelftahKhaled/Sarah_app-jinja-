@@ -1,0 +1,68 @@
+<br>
+<div class="hr"></div>
+<i class="icofont-ui-messaging main_color" style="font-size:120px;"></i>
+<br>
+<h3 dir="rtl">
+    لاتوجد لديك رسائل ومصارحات حالياً
+</h3>
+<span class="normal_text_black"> شارك الرابط الخاص بك على صفحات التواصل الأجتماعي مثل الفيسبوك وتويتر  <br>
+      ودع الناس يكتبون لك دون أن تعرف المصدر </span>
+<div class="hr"></div>
+
+
+<br>
+
+
+
+
+
+
+<script>
+    function loade_more() {
+        var last_id = $('.timeline-centered:last').attr('id');
+
+        disabled_button();
+        $.ajax({
+            type: 'POST',
+            url: 'ajax/messages/fetch_messages.html',
+            data: 'last_id=' + last_id + '&sort=' + sort_msg,
+            success: function(res) {
+
+                activebutton();
+                if (res == 'nomore') {
+                    $('#send_button').hide();
+                    nativeToast({
+                        message: ' تم عرض جميع الرسائل ',
+                        type: 'success',
+                        position: 'center'
+                    })
+                } else {
+                    $('#posts_results').append(res);
+                }
+
+
+            },
+            error: function(request, status, error) {
+                document.getElementById('send_button').disabled = false;
+                $('#send_button').html('<img src="assets/img/loader.svg" alt="#" style="vertical-align:middle;" width="22" height="auto"> أعادة المحاولة  ');
+                server_erorr();
+            }
+        });
+
+    }
+
+
+
+
+
+    function activebutton() {
+        document.getElementById('send_button').disabled = false;
+        $('#send_button').html('<img src="assets/img/scroll_down.gif" alt="#" style="vertical-align:middle;" width="22" height="auto"> عرض المزيد من الرسائل ');
+    }
+
+    function disabled_button() {
+        document.getElementById('send_button').disabled = true;
+        $('#send_button').html('  انتظر من فضلك <img src="assets/img/loading.svg" width="27" class="middle" alt="#"> ');
+
+    }
+</script>

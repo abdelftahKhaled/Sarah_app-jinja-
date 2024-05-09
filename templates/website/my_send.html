@@ -1,0 +1,188 @@
+
+{%load static %}
+{% block message %}
+
+<div id="tab_contant"> 
+    <br> 
+      <div id="tab_contant">      <br> <div class="rule">
+        <div class="line"><div></div></div>
+        <div class="words"> {{number_of_messeges}} : المصارحات المرسلة </div>
+        <div class="line"><div></div></div>
+    </div> <div id="posts_results">
+          
+    
+    
+    
+      {% for message in messeges_of_user %}
+      
+        
+    <div class="timeline-centered" id="438670985"> 
+    <div id="dl-438670985">
+      
+    <article class="timeline-entry"><div class="timeline-entry-inner">
+    <div class="timeline-icon bg-secondary" onclick="open_link('53977590013189');">
+      <img src="{{message.profile.image.url}}" class="img_user_found">
+     </div>
+     <div class="timeline-label"><div class="containe">
+      <div class="right" onclick="open_link('53977590013189')">
+      الى :{{message.profile.user.username}}   <span class="msg_time">منذ 10 ثوانى <br> </span> </div>
+      
+      </div><div class="hr"></div>
+      
+      <center style="font-size: 14px;direction: rtl;" class="kill_long_text">{{message.content}} <br>
+      </center><div class="hr"></div> 
+      
+      {% if message.seen %}
+      <div class="textBottom">
+        
+        <a id="del_438307232" href="{% url 'unsent' %}?key={{message.id}}" class="sbutton bc-red"> 
+        <img src="{% static  'assets/img/delete-button.svg' %}" width="15" height="auto" alt="#" style="vertical-align:middle;"> ألغاء الأرسال </a>    
+        
+            <span class="seen"> تم مشاهدة الرسالة  <img src="{% static  'assets/img/seen.svg' %}" width="16" alt="*" class="middle">   </span>
+            
+        
+         </div></div></div>
+      {% else %}
+      <div class="textBottom">
+        
+        <a id="del_send_438670985" href="{% url 'unsent' %}?key={{message.id}}" class="sbutton bc-red"> 
+        <img src="{% static  'assets/img/delete-button.svg' %}" width="15" height="auto" alt="#" style="vertical-align:middle;"> ألغاء الأرسال </a>    
+        
+            <span class="seen"> لم تشاهد الرسالة بعد <img src="{% static  'assets/img/not_seen.svg' %}" width="14" alt="*" class="middle">  </span>
+            
+        
+         </div></div></div>
+      {% endif %}
+        
+ 
+      
+      
+      </article>	</div></div>
+
+
+ 
+    </div>   
+    
+    
+    
+    
+      
+    <script>
+    
+    
+      function loade_more(){
+        var last_id = $('.timeline-centered:last').attr('id');
+        disabled_button();
+          $.ajax({
+                type:'POST',
+                url:'ajax/messages/fetch_my_send.html',
+                data:'last_id='+last_id,
+                success:function(res){
+                  
+                  activebutton();
+                  if(res == 'nomore'){
+                     $('#send_button').hide();
+                       nativeToast({
+      message: ' تم عرض جميع الرسائل ',
+      type: 'success',
+      position: 'center'
+     })
+                  } else {
+                     $('#posts_results').append(res);
+                  }
+               
+                  
+                },error: function (request, status, error) {
+                    document.getElementById('send_button').disabled = false;
+       $('#send_button').html('<img src="assets/img/loader.svg" alt="#" style="vertical-align:middle;" width="22" height="auto"> أعادة المحاولة  ');
+                   server_erorr();
+        }});
+        
+      }
+    
+      
+      
+      
+    
+        function activebutton(){
+        document.getElementById('send_button').disabled = false;
+       $('#send_button').html('<img src="assets/img/scroll_down.gif" alt="#" style="vertical-align:middle;" width="22" height="auto"> عرض المزيد من الرسائل ');
+     }
+      
+      function disabled_button(){
+       document.getElementById('send_button').disabled = true;
+       $('#send_button').html('  انتظر من فضلك <img src="assets/img/loading.svg" width="27" class="middle" alt="#"> ');
+       
+     }
+    
+    
+    </script></div>
+      
+      
+      </article>	</div></div>
+      
+      {% endfor %}
+      
+      
+      
+    </div>   
+    
+    
+    
+    
+      
+    <script>
+    
+     
+      function loade_more(){
+     var last_id = $('.timeline-centered:last').attr('id');
+       
+        disabled_button();
+          $.ajax({
+                type:'POST',
+                url:'ajax/messages/fetch_messages.html',
+                data:'last_id='+last_id+'&sort='+sort_msg,
+                success:function(res){
+                  
+                  activebutton();
+                  if(res == 'nomore'){
+                     $('#send_button').hide();
+                       nativeToast({
+      message: ' تم عرض جميع الرسائل ',
+      type: 'success',
+      position: 'center'
+     })
+                  } else {
+                     $('#posts_results').append(res);
+                  }
+               
+                  
+                },error: function (request, status, error) {
+                    document.getElementById('send_button').disabled = false;
+       $('#send_button').html('<img src="{% static  'assets/img/loader.svg' %}" alt="#" style="vertical-align:middle;" width="22" height="auto"> أعادة المحاولة  ');
+                   server_erorr();
+        }});
+        
+      }
+    
+      
+      
+      
+    
+        function activebutton(){
+        document.getElementById('send_button').disabled = false;
+       $('#send_button').html('<img src="{% static  'assets/img/scroll_down.gif' %}" alt="#" style="vertical-align:middle;" width="22" height="auto"> عرض المزيد من الرسائل ');
+     }
+      
+      function disabled_button(){
+       document.getElementById('send_button').disabled = true;
+       $('#send_button').html('  انتظر من فضلك <img src="{% static  'assets/img/loading.svg' %}" width="27" class="middle" alt="#"> ');
+       
+     }
+    
+    
+    </script>
+    </div>
+    {% endblock %}
+
+

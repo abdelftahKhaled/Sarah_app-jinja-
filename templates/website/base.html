@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon"  type="image/x-icon">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    
+    <link rel="stylesheet" href="{% static 'assets/css/index.css'%}" />
+    <meta name="keywords" content="sarahah,saraha,sarahaa,صراحة,صراحه" />
+    <meta name="description" content="صراحة يساعدك في الحصول على نقد بناء مع المحافظة على سرية هوية الناقد - صارحني الأن">
+</head>
+
+<body>
+    <div class="navbar navbar--extended">
+        <nav class="nav__mobile"></nav>
+        <div class="container">
+            <div class="navbar__inner">
+                <a href="{% url 'index'%}" class="navbar__logo"> <img src="{% static  'assets/img/sarhne-nav.png' %}" height="40" alt="Sarhne" style="margin-top:15px;"> </a>
+                <nav class="navbar__menu">
+
+                    {% if user.is_authenticated %}
+                    <ul>
+                        <li><a href="{% url 'messages'%}"> الرسائل</a></li>
+                        <li><a href="{% url 'setting'%}">حسابي </a></li>
+                        <li><a href="{% url 'search'%}"> بحث</a></li>
+                        <li><a href="{% url 'help'%}"> مساعدة </a></li>
+                        <li><a href="{% url 'account_logout' %}">  الخروج</a></li>
+                    </ul>
+                   
+                       {% else %}
+                       <ul>
+                        <li><a href="{% url 'index'%}"> الرئيسية </a></li>
+                        <li><a href="{% url 'account_signup'%}"> أشتراك </a></li>
+                        <li><a href="{% url 'account_login'%}"> دخول </a></li>
+                        <li><a href="{% url 'help'%}"> المساعدة </a></li>
+                        <li><a href="{% url 'contact_us' %}"> اتصل بنا </a></li>
+                    </ul>
+                {% endif %}
+                    
+                </nav>
+                <div class="navbar__menu-mob"><a href id="toggle"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" class></path></svg></a></div>
+            </div>
+        </div>
+    </div>
+
+
+    {% block content %}
+    
+    
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+</body>
+
+<footer>
+    <div class="cta cta--reverse">
+        <div class="container">
+            <div class="cta__inner">
+                <h2 class="cta__title"> تنزيل تطبيق صارحني صراحة </h2>
+                <img style="border-radius: 2rem;" src="https://www.sarhne.com/assets/img/logo.jpg" width="180"> <br>
+                <p class="cta__sub cta__sub--center">تابع الرسائل التي تصل لحسابك لحظة بلحظة عبر تطيقاتنا للهاتف المحمول </p>
+                <a href="https://play.google.com/store/apps/details?id=app.sarhne.com" title="تنزيل تطبيق صارحني جوجل بلاي" target="_blink"> <img src="{% static 'assets/img/ar_badge_web_generic.png' %}" width="140" alt="تنزيل تطبيق صارحني"> </a>
+                <a href="javascript:alert('صارحني غير متاح بالوقت الحالي للأيفون')" title="تنزيل صارحني للأيفون"> <img src="{% static 'assets/img/iphone-store.png' %}" width="140" alt="تنزيل صارحني للأيفون"> </a>
+            </div>
+        </div>
+    </div>
+    {% if user.is_authenticated %}
+    <br>
+    
+    <div class="box2">
+        <div class="rule">
+            <div class="line">
+                <div></div>
+            </div>
+            <div class="words"> </div>
+            <div class="line">
+                <div></div>
+            </div>
+        </div>
+        <div id="random-app">
+            <center>
+                <style>
+                    .boxapp {
+                        max-width: 550px;
+                        background-color: #F7F7F7;
+                        margin: 5px 5px 15px;
+                        padding: 5px;
+                        border-radius: 5px;
+                        position: relative;
+                    }
+
+                    .apphr {
+                        height: 1px;
+                        background-color: #F7F7F7;
+                        margin: 2px;
+                        display: block;
+                        width: 100%;
+                        clear: both
+                    }
+
+                    #narrow {
+                        float: right;
+                        width: 100px
+                    }
+
+                    #wide {
+                        float: left;
+                        width: calc(100% - 113px);
+                        color: #000;
+                        text-align: right
+                    }
+
+                    .title {
+                        font-size: 17px;
+                        font-weight: 700
+                    }
+
+                    .contant {
+                        font-size: 12px
+                    }
+
+                    .apptextBottom {
+                        vertical-align: bottom;
+                        text-align: left;
+                        padding-left: 1px;
+                        font-size: 12px;
+                        color: #4E4758;
+                        position: absolute;
+                        bottom: 0;
+                    }
+
+                    .img {
+                        border: 2px solid #ccc;
+                        border-radius: 50%
+                    }
+                </style>
+                <div class="boxapp" onclick="javascript:location.href='https://sarahah.pro/?op=openchrome'">
+                    <div class="apphr"> </div>
+                    <div id="parent">
+                        <div id="wide"><span class="title"> صراحة - sarahah </span><br>
+                            <span class="contant"> صراحة الجديد رسائل سرية مع ميزات جديدة حصرية </span> <br>
+                            <div class="apptextBottom"> مستخدمون : +100,000 </div>
+                        </div>
+                        <div id="narrow">
+                            <img src="{% static 'sarahahpro.jpg' %}" class="img" alt="#" width="100" height="100">
+                        </div>
+                    </div>
+                    <div class="apphr"> </div>
+                </div>
+                <div class="boxapp" onclick="javascript:location.href='https://play.google.com/store/apps/details?id=com.sournet.app'">
+                    <div class="apphr"> </div>
+                    <div id="parent">
+                        <div id="wide"><span class="title"> شات صارحني </span><br>
+                            <span class="contant"> تعرف على مستخدمين موقع صارحني من خلال غرف الدردشة </span> <br>
+                            <div class="apptextBottom"> مستخدمون : +5000,000 </div>
+                        </div>
+                        <div id="narrow">
+                            <img src="https://play-lh.googleusercontent.com/WwP3LfDOiX41sDzjrjnHHA0RtNvv3PGeKJTljOD9_TpzsK6p_bGbl4hbs8o4ckOy7Wmc=w480-h960" class="img" alt="#" width="100" height="100">
+                        </div>
+                    </div>
+                    <div class="apphr"> </div>
+                </div>
+            </center>
+        </div>
+        <div class="hr"></div>
+    </div>
+{%else%}
+
+
+{% endif%}
+
+    <div class="footer footer--dark" dir="rtl">
+        <div class="container" dir="rtl">
+            <div id="footer">
+                <center> <br>
+                    <a href="https://www.facebook.com/Sarhne.Official/"><img src="{% static 'assets/img/ffacebook.svg' %}" width="50" height="auto"> &nbsp; </a>
+                    <a href="https://www.instagram.com/sarhne_official/?swa33"><img src="{% static 'assets/img/finstagram.svg' %}" width="50" height="auto"> &nbsp; </a>
+                    <a href="#"><img src="{% static 'assets/img/fwhatsapp.svg' %}" width="50" height="auto"> &nbsp; </a>
+                    <a href="https://play.google.com/store/apps/details?id=app.sarhne.com"><img src="{% static 'assets/img/fandroid.svg' %}" width="50" height="auto"></a>
+                    <br>
+                    <small> جميع الحقوق محفوظة © 2022 </small>
+                    <br>
+                    <a href="index.html" class="wh"> صارحني </a> - <a href="Privacy.html" class="wh"> الخصوصية </a> - <a href="Terms.html" class="wh"> القوانين </a> - <a href="contact_us.html" class="wh"> اتصل بنا </a> <img src="{% static 'assets/img/sarhne-footer.png' %}"
+                        width="20" alt="2021">
+                    <br> <br> </center>
+            </div>
+        </div>
+
+</footer>
+
+
+</html>

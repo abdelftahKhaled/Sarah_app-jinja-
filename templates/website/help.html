@@ -1,0 +1,138 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <title> التعليمات والمساعدة | صارحني </title>
+    <link href="{% static 'assets/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/icofont.min.css' %}">
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+</head>
+
+<body id="body">
+
+
+    <center>
+        <div id="top">
+            <br><img src="{% static 'assets/img/help.svg' %}" width="60" alt="#"><br>
+            <div class="logo">
+                <h3>
+                    التعليمات والمساعدة
+                </h3>
+            </div>
+            <br><br>
+        </div>
+        </div>
+        <div id="center">
+            <div class="container" dir="rtl">
+                <details class="default square">
+                    <summary> ماهو موقع صارحني </summary>
+                    <p>
+                        بخطوة واحدة، أنت على موعد مع الحقيقة أحصل على رسائل سرية من زملائك بصراحة إعرف مزاياك و عيوبك، وما يعتقده الناس عنك عزز شخصيتك بمعرفة الواقع بعيدا عن النفاق ادخل في حوارات مباشرة مع أصدقاءك بسرية واجه الصراحة التي أخفتها عنك المجاملات
+                    </p>
+                </details>
+                <details class="default square">
+                    <summary> كيف انشئ حساب </summary>
+                    <p>
+                        يمكنك تسجيل حساب عبر بريدك الإلكتروني او الحسابات الإجتماعية بسهولة
+                    </p>
+                </details>
+                <details class="default square">
+                    <summary> نسيت كلمة المرور </summary>
+                    <p>
+                        من خلال صفحة تسجيل الدخول أضغط على نسيت كلمة المرور ادخل بريدك الألكتروني وسنرسل لك رابط اعادة تعين كلمة السر , ملاحظة اذا كنت مسجل بواسطة الشبكات الاجتماعية فقط انقر على دخول بواسطة جوجل او فيس بوك
+                    </p>
+                </details>
+                <details class="default square">
+                    <summary> كيف احصل على مصارحات </summary>
+                    <p>
+                        بعد انشاء الحساب ستحصل على الرابط الخاص بك عند حصولك على الرابط الخاص بك يمكنك نشره عبر مواقع التواصل الإجتماعي لتحصل على ملاحظات دون ان تعرف المصدر
+                    </p>
+                </details>
+                <details class="default square">
+                    <summary> وصلتني مصارحة مزعجة </summary>
+                    <p>
+                        المعذرة لن نكون قادرين على معرفة من المرسل لان نظام عمل الموقع الحصول على مصاراحات مجهولة تستطيع من الأعدادت الحساب تفعيل ميزة فلترة المصاراحات التي تحتوى على كلام سيء ولن نكون قادرين على فلترة جميع الكلمات
+                    </p>
+                </details>
+                <details class="default square">
+                    <summary> الأبلاغ عن مستخدم </summary>
+                    <p>
+                        في حال وجدت مستخدم ينتهك معاير وشروط موقع صارحني من فضلك ارسل لنا بلاغ عن هذا المستخدم من خلال صفحته الشخصية ستجد زر ابلاغ عن اساءة والفريق المختص سيراجع الابلاغ ويتخذ الأجراء المطلوب
+                    </p>
+                </details>
+                <details class="default square">
+                    <summary> ارغب بالأتصال بأدارة صارحني </summary>
+                    <p>
+                        يمكنك التواصل معنا بشكل مباشر من خلال ازرار شبكات التواصل الموجودة اسفل كل صفحة
+                    </p>
+                </details>
+            </div>
+            <br></div>
+        <br>
+        <script async src="{% static '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' %}"></script>
+
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4704968227879779" data-ad-slot="8364530822" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script> <br>
+        </div>
+    </center>
+    <script>
+        function screenClass() {
+            if ($(window).innerWidth() > 1200) {
+                $('.tabs').hide();
+                $('.nav').show();
+            } else {
+                $('.nav').hide();
+                $('.tabs').show();
+            }
+        }
+
+        // Fire.
+        screenClass();
+
+        // And recheck when window gets resized.
+        $(window).bind('resize', function() {
+            screenClass();
+        });
+    </script>
+    <script src="{% static 'assets/js/func.js' %}"></script>
+    <script src="{% static 'assets/js/alerty.js' %}"></script>
+    <script src="{% static 'assets/js/toast.js' %}"></script>
+    <div id="footer">
+        <center> <br>
+            <a href="https://www.facebook.com/Sarhne.Official/"><img src="{% static 'assets/img/ffacebook.svg' %}" width="50" height="auto"> &nbsp; </a>
+            <a href="https://www.instagram.com/sarhne_official/?swa33"><img src="{% static 'assets/img/finstagram.svg' %}" width="50" height="auto"> &nbsp; </a>
+            <a href="#"><img src="{% static 'assets/img/fwhatsapp.svg' %}" width="50" height="auto"> &nbsp; </a>
+            <a href="https://play.google.com/store/apps/details?id=app.sarhne.com"><img src="{% static 'assets/img/fandroid.svg' %}" width="50" height="auto"></a>
+            <br>
+            <small> جميع الحقوق محفوظة © 2023 </small>
+            <br>
+            <a href="index.html" class="wh"> صارحني </a> - <a href="https://www.sarhne.com/Privacy.html" class="wh"> الخصوصية </a> - <a href="https://www.sarhne.com/Terms.html" class="wh"> القوانين </a> - <a href="contact_us.html" class="wh"> اتصل بنا </a>            <img src="assets/img/sarhne-footer.png" width="20" alt="2021">
+            <br> <br> </center>
+    </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZRDMJGQHJC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZRDMJGQHJC');
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"8580af4feef37182","version":"2024.2.1","token":"218cd1753fe64a258e6d9b2b19630e7e"}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+{% endblock content %}
